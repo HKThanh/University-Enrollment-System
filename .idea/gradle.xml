@@ -19,6 +19,9 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Backend/enroll-service" />
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
