@@ -19,14 +19,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Backend/faculty-service" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/Backend/faculty-service" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>
