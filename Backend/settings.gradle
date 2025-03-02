@@ -3,5 +3,7 @@ include 'service-registry'
 include 'config-server'
 include 'api-gateway'
 include 'auth-services'
+include 'faculty-service'
 include 'course-service'
 include 'schedule-service'
+
