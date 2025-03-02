@@ -1,5 +1,6 @@
 rootProject.name = 'Backend'
 include 'service-registry'
 include 'config-server'
+include 'api-gateway'
 include 'course-service'
 include 'schedule-service'
