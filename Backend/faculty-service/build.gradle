@@ -18,14 +18,40 @@ configurations {
 		extendsFrom annotationProcessor
 	}
 }
-
+ext {
+	springCloudVersion = '2024.0.0'
+}
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
+
+	implementation 'com.fasterxml.jackson.core:jackson-annotations'
+	// https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing-bridge-brave
+	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+	// https://mvnrepository.com/artifact/io.zipkin.reporter2/zipkin-reporter-brave
+	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:4.1.5'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
