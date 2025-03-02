@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/University-Enrollment-System.iml" filepath="$PROJECT_DIR$/.idea/University-Enrollment-System.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Backend/auth-services/auth-services.iml" filepath="$PROJECT_DIR$/Backend/auth-services/auth-services.iml" />
     </modules>
   </component>
 </project>
