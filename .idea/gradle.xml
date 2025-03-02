@@ -16,6 +16,9 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Backend/auth-services" />
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
