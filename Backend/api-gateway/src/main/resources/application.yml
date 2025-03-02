@@ -1,0 +1,106 @@
+server:
+  port: 8060
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+        - id: faculty-service
+          uri: lb://faculty-service
+          predicates:
+            - Path=/faculties/**
+            - Path=/students/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: faculty-service
+                fallbackuri: forward:/facultyServiceFallBack
+        - id: enroll-service
+          uri: lb://enroll-service
+          predicates:
+            - Path=/enrollments/**
+            - Path=/classes/**
+            - Path=/wait-list/**
+        - id: schedule-service
+          uri: lb://schedule-service
+          predicates:
+            - Path=/schedules/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: schedule-service
+                fallbackuri: forward:/scheduleServiceFallBack
+        - id: course-service
+          uri: lb://course-service
+          predicates:
+            - Path=/courses/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: course-service
+                fallbackuri: forward:/courseServiceFallBack
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payments/**
+            - Path=/invoices/**
+            - Path=/course-payments/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: payment-service
+                fallbackuri: forward:/paymentServiceFallBack
+
+      globalcors:
+        corsConfigurations:
+          "[/**]":
+            allowedOriginPatterns: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      timeout: 60000
+      password: 123456
+  main:
+    web-application-type: reactive
+jwt:
+  secret: 9fa543ab908887fa3011d3692a28b865eec519fd235881c85efcc2659b61aa00
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      faculty-service:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
