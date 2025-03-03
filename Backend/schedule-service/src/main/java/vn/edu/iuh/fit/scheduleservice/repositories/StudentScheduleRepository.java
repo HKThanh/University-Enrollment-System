@@ -10,4 +10,5 @@ import java.util.List;
 public interface StudentScheduleRepository extends MongoRepository<StudentSchedule, String> {
     List<StudentSchedule> findByStudentId(String studentId);
 
+    void deleteByStudentIdAndClassId(String studentId, String classId);
 }

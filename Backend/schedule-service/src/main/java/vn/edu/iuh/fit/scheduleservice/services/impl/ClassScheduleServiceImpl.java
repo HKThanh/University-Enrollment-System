@@ -1,18 +1,18 @@
 package vn.edu.iuh.fit.scheduleservice.services.impl;
 
-import com.mongodb.client.MongoCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.MatchOperation;
 import org.springframework.data.mongodb.core.aggregation.UnwindOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import vn.edu.iuh.fit.scheduleservice.dtos.EnrollGroup;
 import vn.edu.iuh.fit.scheduleservice.dtos.QueryClassSchedule;
 import vn.edu.iuh.fit.scheduleservice.models.ClassSchedule;
 import vn.edu.iuh.fit.scheduleservice.models.ClassType;
-import vn.edu.iuh.fit.scheduleservice.models.Schedule;
 import vn.edu.iuh.fit.scheduleservice.models.StudentSchedule;
 import vn.edu.iuh.fit.scheduleservice.repositories.ClassScheduleRepository;
 import vn.edu.iuh.fit.scheduleservice.repositories.StudentScheduleRepository;
@@ -102,5 +102,26 @@ public class ClassScheduleServiceImpl implements ClassScheduleService {
             }
         }
         return filteredSchedules;
+    }
+
+    @Override
+    public StudentSchedule registrySchedule(String studentId, String courseId, int group) {
+        return studentScheduleRepository.save(new StudentSchedule(studentId, courseId, group));
+    }
+
+    @Override
+    public void cancelSchedule(String studentId, String classId) {
+        studentScheduleRepository.deleteByStudentIdAndClassId(studentId, classId);
+    }
+
+    @Override
+    public void changeSchedule(String newClassId, String oldClassId, String studentId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("studentId").is(studentId).and("classId").is(oldClassId));
+
+        Update update = new Update();
+        update.set("classId", newClassId);
+
+        mongoTemplate.updateFirst(query, update, StudentSchedule.class);
     }
 }
