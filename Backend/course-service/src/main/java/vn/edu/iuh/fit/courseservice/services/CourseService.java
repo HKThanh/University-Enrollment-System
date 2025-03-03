@@ -13,4 +13,5 @@ public interface CourseService {
     List<Course> getTop10Courses();
     Map<Integer, List<CourseDTO>> listAllCourseByMajorAndYear(int majorId, int year);
     List<ListCourseResponse> getCoursesByIds(int majorId, List<String> courseIds);
+
 }
