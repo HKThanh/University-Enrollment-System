@@ -3,11 +3,11 @@ package vn.edu.iuh.fit.scheduleservice.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.iuh.fit.scheduleservice.dtos.QueryClassSchedule;
-import vn.edu.iuh.fit.scheduleservice.dtos.ResponseWrapper;
+import vn.edu.iuh.fit.scheduleservice.dtos.*;
 import vn.edu.iuh.fit.scheduleservice.models.ClassSchedule;
 import vn.edu.iuh.fit.scheduleservice.services.ClassScheduleService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,6 +60,26 @@ public class ClassScheduleController {
         }
 
         return false;
+    }
+
+    private List<ConflictResponse> findConflicts(List<QueryClassSchedule> existingSchedules, List<QueryClassSchedule> newSchedules) {
+        List<ConflictResponse> conflicts = new ArrayList<>();
+        for (QueryClassSchedule newSchedule : newSchedules) {
+            for (QueryClassSchedule existingSchedule : existingSchedules) {
+                if (isConflict(existingSchedule, newSchedule)) {
+                    conflicts.add(new ConflictResponse(existingSchedule.classId(), existingSchedule.courseId(), existingSchedule.courseName(), existingSchedule.schedule(), newSchedule.classId(), newSchedule.courseId(), newSchedule.courseName(), newSchedule.schedule()));
+                }
+            }
+        }
+        return conflicts;
+    }
+
+    @PostMapping("/conflicts")
+    public List<ConflictResponse> checkScheduleConflict(@RequestBody ScheduleConflictRequest request) {
+        List<QueryClassSchedule> existingSchedules = classScheduleService.getEachScheduleByClassIds(request.enrollGroups());
+        List<QueryClassSchedule> newSchedules = classScheduleService.getEachScheduleByClassIds(List.of(new EnrollGroup(request.newClassId(), request.groupId())));
+
+        return findConflicts(existingSchedules, newSchedules);
     }
 
 }
