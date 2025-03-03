@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/faculty-service/Backend.faculty-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/faculty-service/Backend.faculty-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/schedule-service/Backend.schedule-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/schedule-service/Backend.schedule-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/University-Enrollment-System.iml" filepath="$PROJECT_DIR$/.idea/University-Enrollment-System.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Backend/enroll-service/enroll-service.iml" filepath="$PROJECT_DIR$/Backend/enroll-service/enroll-service.iml" />
     </modules>
   </component>
 </project>
