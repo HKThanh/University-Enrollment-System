@@ -10,6 +10,7 @@
         </processorPath>
         <module name="Backend.schedule-service.main" />
         <module name="Backend.auth-services.main" />
+        <module name="Backend.enroll-service.main" />
         <module name="Backend.faculty-service.main" />
         <module name="Backend.course-service.main" />
       </profile>
@@ -27,6 +28,9 @@
       <module name="course-service" target="17" />
       <module name="course-service.main" target="17" />
       <module name="course-service.test" target="17" />
+      <module name="enroll-service" target="17" />
+      <module name="enroll-service.main" target="17" />
+      <module name="enroll-service.test" target="17" />
       <module name="faculty-service" target="17" />
       <module name="faculty-service.main" target="17" />
       <module name="faculty-service.test" target="17" />
