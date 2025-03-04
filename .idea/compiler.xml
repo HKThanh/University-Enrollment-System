@@ -13,6 +13,7 @@
         <module name="Backend.enroll-service.main" />
         <module name="Backend.faculty-service.main" />
         <module name="Backend.course-service.main" />
+        <module name="Backend.grade-management-service.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

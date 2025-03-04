@@ -15,8 +15,19 @@
             <option value="$PROJECT_DIR$/Backend/course-service" />
             <option value="$PROJECT_DIR$/Backend/enroll-service" />
             <option value="$PROJECT_DIR$/Backend/faculty-service" />
+            <option value="$PROJECT_DIR$/Backend/grade-management-service" />
             <option value="$PROJECT_DIR$/Backend/schedule-service" />
             <option value="$PROJECT_DIR$/Backend/service-registry" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Backend/grade-management-service" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../Something/gradle-8.6" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Backend/grade-management-service" />
           </set>
         </option>
       </GradleProjectSettings>
