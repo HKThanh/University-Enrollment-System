@@ -35,6 +35,9 @@
       <module name="faculty-service" target="17" />
       <module name="faculty-service.main" target="17" />
       <module name="faculty-service.test" target="17" />
+      <module name="grade-management-service" target="17" />
+      <module name="grade-management-service.main" target="17" />
+      <module name="grade-management-service.test" target="17" />
       <module name="service-registry" target="17" />
       <module name="service-registry.main" target="17" />
       <module name="service-registry.test" target="17" />
