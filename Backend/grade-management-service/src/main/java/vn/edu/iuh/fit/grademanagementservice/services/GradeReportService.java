@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GradeReportService {
     List<GradeReport> findByStudentId(String studentId);
+    GradeReport findByStudetnIdAndCourseId(String studentId, String courseId);
 }

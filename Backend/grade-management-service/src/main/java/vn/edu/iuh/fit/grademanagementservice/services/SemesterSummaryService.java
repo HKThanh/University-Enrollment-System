@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SemesterSummaryService {
     List<SemesterSummary> getSemesterSummaryByStudentId(String studentId);
+
+    SemesterSummary getSemesterSummaryByStudentIdAndSemesterAndYear(String studentId, int semester, int year);
 }
