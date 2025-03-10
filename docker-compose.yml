@@ -1,0 +1,163 @@
+services:
+  postgres:
+    container_name: db-postgres-container
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./databases/postgres:/var/lib/postgresql/data
+    networks:
+      - postgres-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+  adminer:
+    container_name: adminer-container
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  mongodb:
+    container_name: db-mongodb-container
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    volumes:
+      - ./databases/mongodb:/data/db
+    networks:
+      - mongodb-net
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=123456
+    networks:
+      - mongodb-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  zipkin:
+    container_name: zipkin-container
+    image: openzipkin/zipkin:latest
+    ports:
+      - "9411:9411"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  redis:
+    container_name: redis-container
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=123456
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    networks:
+      - redis-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  zookeeper:
+    container_name: zookeeper-container
+    image: confluentinc/cp-zookeeper:latest
+    restart: always
+    ports:
+      - "2181:2181"
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - ZOOKEEPER_TICK_TIME=2000
+    networks:
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  kafka:
+    container_name: kafka-container
+    image: confluentinc/cp-kafka:latest
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LISTENERS=INSIDE://:29092,OUTSIDE://:9092
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://kafka:29092,OUTSIDE://localhost:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    networks:
+      - kafka-net
+  service-registry:
+    image: that909kk/be-service-registry:lastest
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+volumes:
+  postgres-data:
+  mongodb-data:
+networks:
+  backend:
+    name: universityenrollment-backend
+    driver: bridge
+  postgres-net:
+    driver: bridge
+  mongodb-net:
+    driver: bridge
+  redis-net:
+    driver: bridge
+  kafka-net:
+    driver: bridge
+  
