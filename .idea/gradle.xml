@@ -13,7 +13,9 @@
             <option value="$PROJECT_DIR$/Backend/auth-services" />
             <option value="$PROJECT_DIR$/Backend/config-server" />
             <option value="$PROJECT_DIR$/Backend/course-service" />
+            <option value="$PROJECT_DIR$/Backend/enroll-service" />
             <option value="$PROJECT_DIR$/Backend/faculty-service" />
+            <option value="$PROJECT_DIR$/Backend/grade-management-service" />
             <option value="$PROJECT_DIR$/Backend/schedule-service" />
             <option value="$PROJECT_DIR$/Backend/service-registry" />
           </set>

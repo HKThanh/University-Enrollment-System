@@ -6,12 +6,14 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar" />
+          <entry name="$PROJECT_DIR$/../../Something/gradle-8.6/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar" />
         </processorPath>
         <module name="Backend.schedule-service.main" />
         <module name="Backend.auth-services.main" />
+        <module name="Backend.enroll-service.main" />
         <module name="Backend.faculty-service.main" />
         <module name="Backend.course-service.main" />
+        <module name="Backend.grade-management-service.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,9 +29,15 @@
       <module name="course-service" target="17" />
       <module name="course-service.main" target="17" />
       <module name="course-service.test" target="17" />
+      <module name="enroll-service" target="17" />
+      <module name="enroll-service.main" target="17" />
+      <module name="enroll-service.test" target="17" />
       <module name="faculty-service" target="17" />
       <module name="faculty-service.main" target="17" />
       <module name="faculty-service.test" target="17" />
+      <module name="grade-management-service" target="17" />
+      <module name="grade-management-service.main" target="17" />
+      <module name="grade-management-service.test" target="17" />
       <module name="service-registry" target="17" />
       <module name="service-registry.main" target="17" />
       <module name="service-registry.test" target="17" />
