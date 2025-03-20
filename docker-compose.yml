@@ -1,0 +1,295 @@
+services:
+  postgres:
+    container_name: db-postgres-container
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./databases/postgres/init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./databases/postgres/data:/var/lib/postgresql/data
+    networks:
+      - postgres-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+  adminer:
+    container_name: adminer-container
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  mongodb:
+    container_name: db-mongodb-container
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    volumes:
+      - ./databases/mongodb/data:/data/db
+      - ./databases/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+    networks:
+      - mongodb-net
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=123456
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=root
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=123456
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+    networks:
+      - mongodb-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin:latest
+    ports:
+      - "9411:9411"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  redis:
+    container_name: redis-container
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=123456
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    networks:
+      - redis-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  zookeeper:
+    container_name: zookeeper-container
+    image: confluentinc/cp-zookeeper:latest
+    restart: always
+    ports:
+      - "2181:2181"
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - ZOOKEEPER_TICK_TIME=2000
+    networks:
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  kafka:
+    container_name: kafka-container
+    image: confluentinc/cp-kafka:latest
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LISTENERS=INSIDE://:29092,OUTSIDE://:9092
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://kafka:29092,OUTSIDE://localhost:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    networks:
+      - kafka-net
+  service-registry:
+    image: that909kk/be-service-registry:lastest
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+        reservations:
+          memory: 128M
+  config-server:
+    image: that909kk/be-config-server:lastest
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+    volumes:
+      - ./Backend/config-server:/config
+    networks:
+      - backend
+    deploy:
+        resources:
+          limits:
+            cpus: '0.50'
+            memory: 256M
+          reservations:
+            memory: 128M
+  apigateway:
+    image: that909kk/be-api-gateway:lastest
+    container_name: api-gateway-container
+    ports:
+      - "8060:8060"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_REDIS_DATABASE=0
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_TIMEOUT=60000
+      - SPRING_DATA_REDIS_PASSWORD=123456
+    volumes:
+      - ./Backend/api-gateway:/config
+    networks:
+      - backend
+      - redis-net
+    depends_on:
+        - config-server
+        - service-registry
+        - redis
+        - zipkin
+    deploy:
+        resources:
+          limits:
+            cpus: '0.50'
+            memory: 512M
+          reservations:
+            memory: 256M
+  auth-service:
+    image: that909kk/be-auth-services:lastest
+    ports:
+      - "9004:9004"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_APPLICATION_NAME=auth-service
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/auth_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=false
+      - JWT_SECRET=9fa543ab908887fa3011d3692a28b865eec519fd235881c85efcc2659b61aa00
+      - JWT_EXPIRATION=86400
+      - SPRING_DATA_REDIS_DATABASE=0
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_TIMEOUT=60000
+      - SPRING_DATA_REDIS_PASSWORD=123456
+      - SPRING_ZIPKIN_BASE_URL=http://zipkin:9411
+      - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://zipkin:9411/api/v2/spans
+      - SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0
+    volumes:
+      - ./Backend/auth-service:/config
+    networks:
+      - backend
+      - redis-net
+      - postgres-net
+    depends_on:
+        - config-server
+        - service-registry
+        - redis
+        - apigateway
+        - postgres
+    deploy:
+        resources:
+          limits:
+            cpus: '0.50'
+            memory: 512M
+          reservations:
+            memory: 256M
+  faculty-service:
+    image: that909kk/be-faculty-service:lastest
+    restart: always
+    ports:
+      - "8082:8082"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_APPLICATION_NAME=faculty-service
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/faculty_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=false
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - postgres
+    volumes:
+      - ./Backend/faculty-service:/config
+    networks:
+      - backend
+      - postgres-net
+    deploy:
+        resources:
+          limits:
+            cpus: '0.50'
+            memory: 512M
+          reservations:
+            memory: 256M
+volumes:
+  postgres-data:
+  mongodb-data:
+networks:
+  backend:
+      name: university-enrollment-backend
+      driver: bridge
+  postgres-net:
+      driver: bridge
+  mongodb-net:
+      driver: bridge
+  redis-net:
+      driver: bridge
+  kafka-net:
+      driver: bridge
+  
