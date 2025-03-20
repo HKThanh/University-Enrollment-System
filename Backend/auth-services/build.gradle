@@ -37,7 +37,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.2.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 
