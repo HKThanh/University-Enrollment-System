@@ -2,6 +2,8 @@ package vn.edu.iuh.fit.authservices.client;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import reactor.core.publisher.Mono;
 import vn.edu.iuh.fit.authservices.dtos.StudentDTO;
 
 @Service
@@ -18,4 +20,5 @@ public class FacultyClient {
                 .retrieve()
                 .bodyToMono(StudentDTO.class).block();
     }
+    
 }
