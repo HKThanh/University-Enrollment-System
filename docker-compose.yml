@@ -350,6 +350,37 @@ services:
         reservations:
           memory: 256M
 
+  grade-management-service:
+    image: 21086351huynhkimthanh/be-grade-management-service:lastest
+    restart: always
+    ports:
+      - "8087:8087"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=grade_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+    volumes:
+      - ./Backend/grade-management-service:/config
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - mongodb
+    networks:
+      - backend
+      - mongodb-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
 
 volumes:
   postgres-data:

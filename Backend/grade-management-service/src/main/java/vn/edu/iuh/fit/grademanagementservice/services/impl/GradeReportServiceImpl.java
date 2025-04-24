@@ -31,4 +31,9 @@ public class GradeReportServiceImpl implements GradeReportService {
         query.addCriteria(Criteria.where("studentId").is(studentId).and("courseId").is(courseId));
         return mongoTemplate.findOne(query, GradeReport.class);
     }
+
+    @Override
+    public GradeReport getGradeReport(String studentId, String courseId) {
+        return gradeReportRepository.findByStudentIdAndClassId(studentId, courseId);
+    }
 }

@@ -35,7 +35,7 @@ CREATE TABLE student (
 
 INSERT INTO student (id, full_name, password, photos) VALUES
 ('21086061', 'Lê Minh Thật', '$2a$10$d.kRHxGIsH1aULbZg8g85Oj/1pfyDGy6YJ8RL8wdWu4XiwdX1PySO', 'https://source.unsplash.com/random'), 
-('22222222', 'Lê Minh Thật', '$2a$10$d.kRHxGIsH1aULbZg8g85Oj/1pfyDGy6YJ8RL8wdWu4XiwdX1PySO', 'https://source.unsplash.com/random'); 
+('21086351', 'Huỳnh Kim Thành', '$2a$10$d.kRHxGIsH1aULbZg8g85Oj/1pfyDGy6YJ8RL8wdWu4XiwdX1PySO', 'https://source.unsplash.com/random'); 
 
 -- Bảng students_roles
 DROP TABLE IF EXISTS students_roles CASCADE;
@@ -49,7 +49,7 @@ CREATE TABLE students_roles (
 
 INSERT INTO students_roles (student_id, role_id) VALUES
 ('21086061', 1), 
-('22222222', 1);
+('21086351', 1);
 
 \c faculty_db;
 
@@ -112,7 +112,7 @@ CREATE TABLE students (
 
 INSERT INTO students (id, name, major_id, year) VALUES
 ('21086061', 'Lê Minh Thật', 1, 2021), 
-('22222222', 'Huỳnh Kim Thành', 1, 2021); 
+('21086351', 'Huỳnh Kim Thành', 1, 2021); 
 
 -- Bảng major_semester_summary
 DROP TABLE IF EXISTS major_semester_summary CASCADE;

@@ -79199,14 +79199,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 16
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086061",
     "semester": 1,
     "year": 2021,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300200921101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203002009",
         "course_name": "Nhập môn Tin học",
         "credit": 2,
@@ -79225,7 +79225,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300319221101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203003192",
         "course_name": "Kỹ năng làm việc nhóm",
         "credit": 2,
@@ -79244,7 +79244,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300324221101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203003242",
         "course_name": "Giáo dục Quốc phòng và An ninh 1 ",
         "credit": 4,
@@ -79263,7 +79263,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300325921101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203003259",
         "course_name": "Toán cao cấp 1",
         "credit": 2,
@@ -79282,7 +79282,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300330721102",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203003307",
         "course_name": "Giáo dục thể chất 1 ",
         "credit": 2,
@@ -79301,7 +79301,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300384821103",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203003848",
         "course_name": "Nhập môn Lập trình",
         "credit": 2,
@@ -79320,7 +79320,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301416421101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203014164",
         "course_name": "Triết học Mác - Lênin",
         "credit": 3,
@@ -79339,7 +79339,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301525321101",
-        "student_id": "21082081",
+        "student_id": "21086061",
         "course_id": "4203015253",
         "course_name": "Tiếng Anh 1",
         "credit": 3,
