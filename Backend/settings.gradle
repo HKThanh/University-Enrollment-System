@@ -9,4 +9,4 @@ include 'enroll-service'
 include 'schedule-service'
 include 'grade-management-service'
 include 'notification-service'
-
+include 'payment-service'

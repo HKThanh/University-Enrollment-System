@@ -14,6 +14,7 @@
         <module name="Backend.grade-management-service.main" />
         <module name="Backend.auth-services.main" />
         <module name="Backend.enroll-service.main" />
+        <module name="Backend.payment-service.main" />
         <module name="Backend.course-service.main" />
       </profile>
     </annotationProcessing>

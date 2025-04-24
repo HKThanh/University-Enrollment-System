@@ -385,6 +385,56 @@ services:
         reservations:
           memory: 256M
 
+  payment-service:
+    image: 21086351huynhkimthanh/be-payment-service:lastest
+    restart: always
+    ports:
+      - "8089:8089"
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=payment_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.paymentservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+      - VNP_VERSION=2.1.0
+      - VNP_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+      - VNP_RETURN_URL=http://localhost:5173/thanh-toan-truc-tuyen?success=true
+      - VNP_API_URL=https://sandbox.vnpayment.vn/merchant_webapi/api/transaction
+      - VNP_COMMAND=pay
+    depends_on:
+      - service-registry
+      - config-server
+      - mongodb
+      - apigateway
+      - kafka
+      - schedule-service
+    env_file:
+      - .env
+    networks:
+      - backend
+      - mongodb-net
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+
   notification-service:
     image: 21086351huynhkimthanh/be-notification-service:lastest
     restart: always
