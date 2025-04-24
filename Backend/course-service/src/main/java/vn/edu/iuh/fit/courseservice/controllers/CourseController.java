@@ -24,7 +24,7 @@ public class CourseController {
         this.facultyClient = facultyClient;
     }
 
-    @GetMapping
+    @GetMapping("/top-10")
     public ResponseEntity<List<Course>> getTop10Courses() {
         return ResponseEntity.ok(courseService.getTop10Courses());
     }
