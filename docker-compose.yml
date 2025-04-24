@@ -342,6 +342,8 @@ services:
       - mongodb-net
       - redis-net
       - kafka-net
+    env_file:
+      - .env
     deploy:
       resources:
         limits:
@@ -370,6 +372,8 @@ services:
       - config-server
       - apigateway
       - mongodb
+    env_file:
+      - .env
     networks:
       - backend
       - mongodb-net
@@ -381,6 +385,44 @@ services:
         reservations:
           memory: 256M
 
+  notification-service:
+    image: 21086351huynhkimthanh/be-notification-service:lastest
+    restart: always
+    ports:
+      - "8090:8090"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.notificationservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./Backend/notification-service:/config
+    env_file:
+      - .env
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - mongodb
+      - kafka
+    networks:
+      - backend
+      - mongodb-net
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
 
 volumes:
   postgres-data:

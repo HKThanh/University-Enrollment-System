@@ -8,4 +8,5 @@ include 'course-service'
 include 'enroll-service'
 include 'schedule-service'
 include 'grade-management-service'
+include 'notification-service'
 
