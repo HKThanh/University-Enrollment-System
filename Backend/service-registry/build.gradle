@@ -25,10 +25,12 @@ dependencyManagement {
     }
 }
 dependencies {
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:3.4.4'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test:3.7.5'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

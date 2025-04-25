@@ -4,10 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-services/Backend.auth-services.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-services/Backend.auth-services.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/course-service/Backend.course-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/course-service/Backend.course-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/enroll-service/Backend.enroll-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/enroll-service/Backend.enroll-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/faculty-service/Backend.faculty-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/faculty-service/Backend.faculty-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/grade-management-service/Backend.grade-management-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/grade-management-service/Backend.grade-management-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/notification-service/Backend.notification-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/notification-service/Backend.notification-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/schedule-service/Backend.schedule-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/schedule-service/Backend.schedule-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/University-Enrollment-System.iml" filepath="$PROJECT_DIR$/.idea/University-Enrollment-System.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/notification-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/notification-service.main.iml" />
     </modules>
   </component>
 </project>

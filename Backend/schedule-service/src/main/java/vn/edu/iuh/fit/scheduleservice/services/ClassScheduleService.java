@@ -1,9 +1,13 @@
 package vn.edu.iuh.fit.scheduleservice.services;
 
+import vn.edu.iuh.fit.scheduleservice.dtos.DateRequest;
 import vn.edu.iuh.fit.scheduleservice.dtos.EnrollGroup;
 import vn.edu.iuh.fit.scheduleservice.dtos.QueryClassSchedule;
+import vn.edu.iuh.fit.scheduleservice.dtos.WeekScheduleDTO;
 import vn.edu.iuh.fit.scheduleservice.models.ClassSchedule;
 import vn.edu.iuh.fit.scheduleservice.models.StudentSchedule;
+
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,4 +19,5 @@ public interface ClassScheduleService {
     StudentSchedule registrySchedule(String studentId, String courseId, int group);
     void cancelSchedule(String studentId, String classId);
     void changeSchedule(String newClassId, String oldClassId, String studentId);
+    List<WeekScheduleDTO> getScheduleByDate(String studentId, DateRequest dateRequest) throws ParseException;
 }

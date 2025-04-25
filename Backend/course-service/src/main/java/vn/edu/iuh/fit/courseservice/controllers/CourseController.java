@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.courseservice.controllers;
 
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +20,12 @@ public class CourseController {
     private final CourseService courseService;
     private final FacultyClient facultyClient;
 
-    public CourseController(CourseService courseService, FacultyClient facultyClient) {
+    public CourseController(CourseService courseService, FacultyClient facultyClient, MongoTemplate mongoTemplate) {
         this.courseService = courseService;
         this.facultyClient = facultyClient;
     }
 
-    @GetMapping
+    @GetMapping("/top-10")
     public ResponseEntity<List<Course>> getTop10Courses() {
         return ResponseEntity.ok(courseService.getTop10Courses());
     }

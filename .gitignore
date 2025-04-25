@@ -1,0 +1,6 @@
+databases/mongodb
+databases/postgres/data
+
+Backend/.gradle
+
+.env

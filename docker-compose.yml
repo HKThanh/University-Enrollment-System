@@ -228,7 +228,7 @@ services:
       - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://zipkin:9411/api/v2/spans
       - SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0
     volumes:
-      - ./Backend/auth-service:/config
+      - ./Backend/auth-services:/config
     networks:
       - backend
       - redis-net
@@ -277,6 +277,265 @@ services:
             memory: 512M
           reservations:
             memory: 256M
+
+  course-service:
+    image: 21086351huynhkimthanh/be-course-service:lastest
+    restart: always
+    ports:
+      - "8086:8086"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_APPLICATION_NAME=course-service
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=course_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+    volumes:
+      - ./Backend/course-service:/config
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - mongodb
+    networks:
+      - backend
+      - mongodb-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  schedule-service:
+    image: 21086351huynhkimthanh/be-schedule-service:lastest
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=schedule_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=schedule-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.scheduleservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+    ports:
+      - "8085:8085"
+    depends_on:
+      - service-registry
+      - config-server
+      - mongodb
+      - apigateway
+      - redis
+      - kafka
+    networks:
+      - backend
+      - mongodb-net
+      - redis-net
+      - kafka-net
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  grade-management-service:
+    image: 21086351huynhkimthanh/be-grade-management-service:lastest
+    restart: always
+    ports:
+      - "8087:8087"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=grade_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+    volumes:
+      - ./Backend/grade-management-service:/config
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - mongodb
+    env_file:
+      - .env
+    networks:
+      - backend
+      - mongodb-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  payment-service:
+    image: 21086351huynhkimthanh/be-payment-service:lastest
+    restart: always
+    ports:
+      - "8089:8089"
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_DATABASE=payment_db
+      - SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE=admin
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/admin
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.paymentservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+      - VNP_VERSION=2.1.0
+      - VNP_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+      - VNP_RETURN_URL=http://localhost:5173/thanh-toan-truc-tuyen?success=true
+      - VNP_API_URL=https://sandbox.vnpayment.vn/merchant_webapi/api/transaction
+      - VNP_COMMAND=pay
+    depends_on:
+      - service-registry
+      - config-server
+      - mongodb
+      - apigateway
+      - kafka
+      - schedule-service
+    env_file:
+      - .env
+    networks:
+      - backend
+      - mongodb-net
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+
+  notification-service:
+    image: 21086351huynhkimthanh/be-notification-service:lastest
+    restart: always
+    ports:
+      - "8090:8090"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.notificationservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./Backend/notification-service:/config
+    env_file:
+      - .env
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - mongodb
+      - kafka
+    networks:
+      - backend
+      - mongodb-net
+      - kafka-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  enroll-service:
+    image: 21086351huynhkimthanh/be-enroll-service:lastest
+    restart: always
+    ports:
+      - "8084:8084"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_APPLICATION_NAME=enroll-service
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/auth_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=false
+      - SPRING_DATA_REDIS_DATABASE=0
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SPRING_DATA_REDIS_TIMEOUT=60000
+      - SPRING_DATA_REDIS_PASSWORD=123456
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.enrollservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./Backend/enroll-service:/config
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - postgres
+      - redis
+      - kafka
+      - mongodb
+      - adminer
+      - mongo-express
+      - auth-service
+      - faculty-service
+      - course-service
+      - grade-management-service
+      - schedule-service
+      - payment-service
+    networks:
+      - backend
+      - postgres-net
+      - redis-net
+      - kafka-net
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+
 volumes:
   postgres-data:
   mongodb-data:

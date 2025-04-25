@@ -55,7 +55,14 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Map<Integer, List<CourseDTO>> listAllCourseByMajorAndYear(int majorId, int year) {
-        return Map.of();
+        Aggregation aggregation = Aggregation.newAggregation(
+                matchStage(majorId, year),
+                lookupStage(),
+                projectStage(majorId)
+        );
+
+        List<CourseDTO> courses = mongoTemplate.aggregate(aggregation, Course.class, CourseDTO.class).getMappedResults();
+        return courses.stream().collect(Collectors.groupingBy(CourseDTO::getSemester));
     }
 
     @Override
@@ -67,6 +74,12 @@ public class CourseServiceImpl implements CourseService {
         );
 
         return mongoTemplate.aggregate(aggregation, Course.class, ListCourseResponse.class).getMappedResults();
+    }
+
+    private MatchOperation matchStage(int majorId, int year) {
+        return Aggregation.match(Criteria.where(COURSE_ON_MAJOR).elemMatch(
+                Criteria.where(MAJOR_ID).is(majorId).and(ACADEMIC_YEAR).is(year)
+        ));
     }
 
     private LookupOperation lookupStage() {
@@ -91,6 +104,4 @@ public class CourseServiceImpl implements CourseService {
                                 .append(PRACTICAL_CREDIT, "$$prerequisite." + PRACTICAL_CREDIT)
                                 .append(THEORY_CREDIT, "$$prerequisite." + THEORY_CREDIT))).as(PREREQUISITES);
     }
-
-
 }
