@@ -474,6 +474,68 @@ services:
         reservations:
           memory: 256M
 
+  enroll-service:
+    image: 21086351huynhkimthanh/be-enroll-service:lastest
+    restart: always
+    ports:
+      - "8084:8084"
+    environment:
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka/
+      - SPRING_APPLICATION_NAME=enroll-service
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/auth_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=false
+      - SPRING_DATA_REDIS_DATABASE=0
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SPRING_DATA_REDIS_TIMEOUT=60000
+      - SPRING_DATA_REDIS_PASSWORD=123456
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP_ID=notification-group
+      - SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET=earliest
+      - SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER=org.apache.kafka.common.serialization.StringDeserializer
+      - SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER=org.springframework.kafka.support.serializer.JsonDeserializer
+      - SPRING_KAFKA_CONSUMER_PROPERTIES_SPRING_JSON_TRUSTED_PACKAGES=vn.edu.iuh.fit.enrollservice.dtos
+      - SPRING_KAFKA_PRODUCER_KEY_SERIALIZER=org.apache.kafka.common.serialization.StringSerializer
+      - SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER=org.springframework.kafka.support.serializer.JsonSerializer
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./Backend/enroll-service:/config
+    depends_on:
+      - service-registry
+      - config-server
+      - apigateway
+      - postgres
+      - redis
+      - kafka
+      - mongodb
+      - adminer
+      - mongo-express
+      - auth-service
+      - faculty-service
+      - course-service
+      - grade-management-service
+      - schedule-service
+      - payment-service
+    networks:
+      - backend
+      - postgres-net
+      - redis-net
+      - kafka-net
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          memory: 256M
+
+
 volumes:
   postgres-data:
   mongodb-data:

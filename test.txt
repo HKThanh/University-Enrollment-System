@@ -1,0 +1,1131 @@
+*localhost:8060/auth/login
+input
+{
+    "username": "21086061",
+    "password": "123456789"
+}
+output
+{
+    "message": "Đăng nhập thành công",
+    "data": {
+        "student": {
+            "id": "21086061",
+            "name": "Lê Minh Thật",
+            "majorId": 1,
+            "majorName": "Kỹ thuật phần mềm",
+            "year": 2021,
+            "facultyId": 1,
+            "facultyName": "Khoa Công nghệ Thông tin"
+        },
+        "accessToken": "eyJhbGciOiJIUzUxMiJ9..",
+        "refreshToken": "eyJhbGciOiJIUzUxMiJ9.."
+    },
+    "status": 200
+}
+
+*localhost:8060/auth/logout
+input
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9..",
+    "refreshToken": "eyJhbGciOiJIUzUxMiJ9..."
+}
+output
+{
+    "message": "Đăng xuất thành công",
+    "data": null,
+    "status": 200
+}
+
+*localhost:8060/faculties
+input
+{}
+output
+[
+    {
+        "id": 1,
+        "name": "Khoa Công nghệ Thông tin"
+    }
+]
+
+*localhost:8060/faculties/major-semester-summary?majorId=1&year=2021
+input
+output
+[
+    {
+        "year": 2021,
+        "semester": 1,
+        "majorId": 1,
+        "totalMandatoryCredits": 11,
+        "totalElectiveCredits": 0
+    },
+    {
+        "year": 2021,
+        "semester": 2,
+        "majorId": 1,
+        "totalMandatoryCredits": 12,
+        "totalElectiveCredits": 3
+    },
+    {
+        "year": 2021,
+        "semester": 3,
+        "majorId": 1,
+        "totalMandatoryCredits": 16,
+        "totalElectiveCredits": 3
+    },
+    {
+        "year": 2021,
+        "semester": 4,
+        "majorId": 1,
+        "totalMandatoryCredits": 12,
+        "totalElectiveCredits": 7
+    },
+    {
+        "year": 2021,
+        "semester": 5,
+        "majorId": 1,
+        "totalMandatoryCredits": 13,
+        "totalElectiveCredits": 3
+    },
+    {
+        "year": 2021,
+        "semester": 6,
+        "majorId": 1,
+        "totalMandatoryCredits": 12,
+        "totalElectiveCredits": 6
+    },
+    {
+        "year": 2021,
+        "semester": 7,
+        "majorId": 1,
+        "totalMandatoryCredits": 11,
+        "totalElectiveCredits": 4
+    },
+    {
+        "year": 2021,
+        "semester": 8,
+        "majorId": 1,
+        "totalMandatoryCredits": 9,
+        "totalElectiveCredits": 6
+    },
+    {
+        "year": 2021,
+        "semester": 9,
+        "majorId": 1,
+        "totalMandatoryCredits": 13,
+        "totalElectiveCredits": 0
+    }
+]
+
+*localhost:8060/students/21086061
+input
+{}
+output
+{
+    "id": "21086061",
+    "name": "Lê Minh Thật",
+    "majorId": 1,
+    "majorName": "Kỹ thuật phần mềm",
+    "year": 2021,
+    "facultyId": 1,
+    "facultyName": "Khoa Công nghệ Thông tin",
+    "email": null
+}
+
+*localhost:8060/schedules
+input
+{}
+output
+[
+    {
+        "classId": "420300094121201",
+        "courseId": "4203000941",
+        "courseName": "Kỹ thuật lập trình",
+        "schedules": [
+            {
+                "dayOfWeek": 3,
+                "timeSlot": "10-12",
+                "startDate": "2021-03-09T13:21:01.134+00:00",
+                "endDate": "2021-03-09T13:21:01.134+00:00",
+                "room": "A03",
+                "location": "12 Nguyễn Văn Bảo Phường 4",
+                "lecturer": "Trần Thị B",
+                "group": 1,
+                "classType": "MID_TERM_EXAM",
+                "dayOff": null
+            },
+            {
+                "dayOfWeek": 5,
+                "timeSlot": "7-9",
+                "startDate": "2021-05-14T07:50:02.286+00:00",
+                "endDate": "2021-05-14T07:50:02.286+00:00",
+                "room": "A10",
+                "location": "53 Phạm Văn Chiêu, Phường 9",
+                "lecturer": "Hoàng Văn E",
+                "group": 1,
+                "classType": "FINAL_EXAM",
+                "dayOff": null
+            },
+            {
+                "dayOfWeek": 7,
+                "timeSlot": "1-3",
+                "startDate": "2021-01-16T00:22:10.305+00:00",
+                "endDate": "2021-05-02T07:37:12.399+00:00",
+                "room": "C01",
+                "location": "12 Nguyễn Văn Bảo Phường 4",
+                "lecturer": "Phạm Thị D",
+                "group": 0,
+                "classType": "THEORY",
+                "dayOff": []
+            },
+            {
+                "dayOfWeek": 7,
+                "timeSlot": "10-12",
+                "startDate": "2021-02-06T05:41:19.642+00:00",
+                "endDate": "2021-05-04T23:19:28.041+00:00",
+                "room": "C07",
+                "location": "53 Phạm Văn Chiêu, Phường 9",
+                "lecturer": "Phạm Thị D",
+                "group": 1,
+                "classType": "PRACTICE",
+                "dayOff": [
+                    "2021-02-13T05:41:19.642+00:00",
+                    "2021-02-20T05:41:19.642+00:00",
+                    "2021-02-27T05:41:19.642+00:00",
+                    "2021-03-06T05:41:19.642+00:00"
+                ]
+            },
+            {
+                "dayOfWeek": 3,
+                "timeSlot": "4-6",
+                "startDate": "2021-01-12T19:36:54.295+00:00",
+                "endDate": "2021-04-14T06:14:33.186+00:00",
+                "room": "A07",
+                "location": "53 Phạm Văn Chiêu, Phường 9",
+                "lecturer": "Lê Văn C",
+                "group": 2,
+                "classType": "PRACTICE",
+                "dayOff": [
+                    "2021-01-19T19:36:54.295+00:00",
+                    "2021-01-26T19:36:54.295+00:00",
+                    "2021-02-02T19:36:54.295+00:00"
+                ]
+            },
+            {
+                "dayOfWeek": 5,
+                "timeSlot": "13-15",
+                "startDate": "2021-01-07T06:20:20.204+00:00",
+                "endDate": "2021-04-09T13:06:26.253+00:00",
+                "room": "B04",
+                "location": "12 Nguyễn Văn Bảo Phường 4",
+                "lecturer": "Lê Văn C",
+                "group": 3,
+                "classType": "PRACTICE",
+                "dayOff": [
+                    "2021-01-14T06:20:20.204+00:00"
+                ]
+            }
+        ]
+    },...
+
+*localhost:8060/schedules/classes/420300094121201
+input
+{}
+output
+{
+    "message": "Lịch học của lớp 420300094121201",
+    "data": {
+        "420300094121201": {
+            "classId": "420300094121201",
+            "courseId": "4203000941",
+            "courseName": "Kỹ thuật lập trình",
+            "schedules": [
+                {
+                    "dayOfWeek": 3,
+                    "timeSlot": "10-12",
+                    "startDate": "2021-03-09T13:21:01.134+00:00",
+                    "endDate": "2021-03-09T13:21:01.134+00:00",
+                    "room": "A03",
+                    "location": "12 Nguyễn Văn Bảo Phường 4",
+                    "lecturer": "Trần Thị B",
+                    "group": 1,
+                    "classType": "MID_TERM_EXAM",
+                    "dayOff": null
+                },
+                {
+                    "dayOfWeek": 5,
+                    "timeSlot": "7-9",
+                    "startDate": "2021-05-14T07:50:02.286+00:00",
+                    "endDate": "2021-05-14T07:50:02.286+00:00",
+                    "room": "A10",
+                    "location": "53 Phạm Văn Chiêu, Phường 9",
+                    "lecturer": "Hoàng Văn E",
+                    "group": 1,
+                    "classType": "FINAL_EXAM",
+                    "dayOff": null
+                },
+                {
+                    "dayOfWeek": 7,
+                    "timeSlot": "1-3",
+                    "startDate": "2021-01-16T00:22:10.305+00:00",
+                    "endDate": "2021-05-02T07:37:12.399+00:00",
+                    "room": "C01",
+                    "location": "12 Nguyễn Văn Bảo Phường 4",
+                    "lecturer": "Phạm Thị D",
+                    "group": 0,
+                    "classType": "THEORY",
+                    "dayOff": []
+                },
+                {
+                    "dayOfWeek": 7,
+                    "timeSlot": "10-12",
+                    "startDate": "2021-02-06T05:41:19.642+00:00",
+                    "endDate": "2021-05-04T23:19:28.041+00:00",
+                    "room": "C07",
+                    "location": "53 Phạm Văn Chiêu, Phường 9",
+                    "lecturer": "Phạm Thị D",
+                    "group": 1,
+                    "classType": "PRACTICE",
+                    "dayOff": [
+                        "2021-02-13T05:41:19.642+00:00",
+                        "2021-02-20T05:41:19.642+00:00",
+                        "2021-02-27T05:41:19.642+00:00",
+                        "2021-03-06T05:41:19.642+00:00"
+                    ]
+                },
+                {
+                    "dayOfWeek": 3,
+                    "timeSlot": "4-6",
+                    "startDate": "2021-01-12T19:36:54.295+00:00",
+                    "endDate": "2021-04-14T06:14:33.186+00:00",
+                    "room": "A07",
+                    "location": "53 Phạm Văn Chiêu, Phường 9",
+                    "lecturer": "Lê Văn C",
+                    "group": 2,
+                    "classType": "PRACTICE",
+                    "dayOff": [
+                        "2021-01-19T19:36:54.295+00:00",
+                        "2021-01-26T19:36:54.295+00:00",
+                        "2021-02-02T19:36:54.295+00:00"
+                    ]
+                },
+                {
+                    "dayOfWeek": 5,
+                    "timeSlot": "13-15",
+                    "startDate": "2021-01-07T06:20:20.204+00:00",
+                    "endDate": "2021-04-09T13:06:26.253+00:00",
+                    "room": "B04",
+                    "location": "12 Nguyễn Văn Bảo Phường 4",
+                    "lecturer": "Lê Văn C",
+                    "group": 3,
+                    "classType": "PRACTICE",
+                    "dayOff": [
+                        "2021-01-14T06:20:20.204+00:00"
+                    ]
+                }
+            ]
+        }
+    },
+    "status": 200
+}
+
+*localhost:8060/grade-report?studentId=21086061
+input
+{}
+output
+[
+    {
+        "classId": "420300090122102",
+        "studentId": "21086061",
+        "courseId": "4203000901",
+        "courseName": "Cấu trúc rời rạc",
+        "credit": 3,
+        "practicalCredit": 0,
+        "theoryCredit": 3,
+        "midtermScore": 5.25,
+        "finalScore": 4.25,
+        "practicalScores": [],
+        "theoryScores": [
+            7.5,
+            5.5,
+            10.0
+        ],
+        "overallScore": 5.2333336,
+        "status": "PASSED"
+    },...
+]
+
+*localhost:8060/courses/by-ids?courseIds=4203000941, 4203000942
+input
+{}
+output
+[
+    {
+        "id": "4203000941",
+        "name": "Kỹ thuật lập trình",
+        "credit": 3,
+        "theoryCredit": 1,
+        "practicalCredit": 2,
+        "type": 1,
+        "semester": 2,
+        "prerequisites": [
+            {
+                "id": "4203003848",
+                "name": "Nhập môn Lập trình",
+                "credit": 2,
+                "theoryCredit": 0,
+                "practicalCredit": 2
+            }
+        ]
+    },
+    {
+        "id": "4203000942",
+        "name": "Cấu trúc dữ liệu và giải thuật",
+        "credit": 4,
+        "theoryCredit": 3,
+        "practicalCredit": 1,
+        "type": 1,
+        "semester": 3,
+        "prerequisites": [
+            {
+                "id": "4203003848",
+                "name": "Nhập môn Lập trình",
+                "credit": 2,
+                "theoryCredit": 0,
+                "practicalCredit": 2
+            }
+        ]
+    }
+]
+
+*localhost:8060/courses
+input - Headers
+{
+    major_id: 1,
+    academic_year: 2021
+}
+}
+output
+{
+    "message": "Chương trình khung",
+    "data": {
+        "1": {
+            "mandatoryCredits": 11,
+            "electiveCredits": 0,
+            "coursesMandatory": [
+                {
+                    "id": "4203002009",
+                    "name": "Nhập môn Tin học",
+                    "credit": 2,
+                    "theoryCredit": 2,
+                    "practicalCredit": 0,
+                    "type": 1,
+                    "semester": 1,
+                    "electiveGroup": 0,
+                    "prerequisites": []
+                },
+                {
+                    "id": "4203003192",
+                    "name": "Kỹ năng làm việc nhóm",
+                    "credit": 2,
+                    "theoryCredit": 2,
+                    "practicalCredit": 0,
+                    "type": 1,
+                    "semester": 1,
+                    "electiveGroup": 0,
+                    "prerequisites": []
+                },
+                {
+                    "id": "4203003242",
+                    "name": "Giáo dục Quốc phòng và An ninh 1 ",
+                    "credit": 4,
+                    "theoryCredit": 4,
+                    "practicalCredit": 0,
+                    "type": 1,
+                    "semester": 1,
+                    "electiveGroup": 0,
+                    "prerequisites": []
+                },...
+]
+
+*localhost:8060/semester-report/summary?semester=2&year=2021
+Headers: id:21086061
+input
+{}
+output
+{
+    "message": "Kết quả học tập theo học kỳ",
+    "data": {
+        "studentId": "21086061",
+        "semester": 2,
+        "year": 2021,
+        "majorId": 1,
+        "gradeReports": [
+            {
+                "classId": "420300094121201",
+                "studentId": "21086061",
+                "courseId": "4203000941",
+                "courseName": "Kỹ thuật lập trình",
+                "credit": 3,
+                "practicalCredit": 2,
+                "theoryCredit": 1,
+                "midtermScore": 10.0,
+                "finalScore": 9.75,
+                "practicalScores": [
+                    9.25,
+                    7.75,
+                    5.5
+                ],
+                "theoryScores": [
+                    9.75,
+                    6.75,
+                    10.0
+                ],
+                "overallScore": 9.508333,
+                "status": "PASSED"
+            },
+            {
+                "classId": "420300213721203",
+                "studentId": "21086061",
+                "courseId": "4203002137",
+                "courseName": "Hệ Thống Máy tính",
+                "credit": 4,
+                "practicalCredit": 3,
+                "theoryCredit": 1,
+                "midtermScore": 5.5,
+                "finalScore": 4.0,
+                "practicalScores": [
+                    7.25,
+                    5.5,
+                    5.25
+                ],
+                "theoryScores": [
+                    10.0,
+                    7.5,
+                    10.0
+                ],
+                "overallScore": 5.166667,
+                "status": "PASSED"
+            },
+            {
+                "classId": "420300330621201",
+                "studentId": "21086061",
+                "courseId": "4203003306",
+                "courseName": "Giáo dục thể chất 2 ",
+                "credit": 2,
+                "practicalCredit": 2,
+                "theoryCredit": 0,
+                "midtermScore": 7.5,
+                "finalScore": 10.0,
+                "practicalScores": [
+                    7.0,
+                    8.25,
+                    7.25
+                ],
+                "theoryScores": [],
+                "overallScore": 8.75,
+                "status": "PASSED"
+            },
+            {
+                "classId": "420300332021201",
+                "studentId": "21086061",
+                "courseId": "4203003320",
+                "courseName": "Phương pháp tính",
+                "credit": 3,
+                "practicalCredit": 0,
+                "theoryCredit": 3,
+                "midtermScore": 10.0,
+                "finalScore": 10.0,
+                "practicalScores": [],
+                "theoryScores": [
+                    9.75,
+                    10.0,
+                    5.0
+                ],
+                "overallScore": 9.65,
+                "status": "PASSED"
+            },
+            {
+                "classId": "420300335421201",
+                "studentId": "21086061",
+                "courseId": "4203003354",
+                "courseName": "Giáo dục quốc phòng và an ninh 2",
+                "credit": 4,
+                "practicalCredit": 2,
+                "theoryCredit": 2,
+                "midtermScore": 10.0,
+                "finalScore": 7.5,
+                "practicalScores": [
+                    4.25,
+                    10.0,
+                    9.0
+                ],
+                "theoryScores": [
+                    5.5,
+                    6.0,
+                    7.5
+                ],
+                "overallScore": 8.158334,
+                "status": "PASSED"
+            }
+        ],
+        "gpa": 7.5055556,
+        "totalCredits": 16,
+        "totalPassedCredits": 16
+    },
+    "status": 200
+}
+
+*localhost:8060/semester-report/summaries
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "Kết quả học tập",
+    "data": [
+        {
+            "semester": 1,
+            "year": 2021,
+            "gradeReports": [
+                {
+                    "classId": "420300200921101",
+                    "studentId": "21086061",
+                    "courseId": "4203002009",
+                    "courseName": "Nhập môn Tin học",
+                    "credit": 2,
+                    "practicalCredit": 0,
+                    "theoryCredit": 2,
+                    "midtermScore": 7.75,
+                    "finalScore": 5.0,
+                    "practicalScores": [],
+                    "theoryScores": [
+                        8.0,
+                        9.25,
+                        9.5
+                    ],
+                    "overallScore": 6.608333,
+                    "status": "PASSED"
+                },
+                {
+                    "classId": "420300319221101",
+                    "studentId": "21086061",
+                    "courseId": "4203003192",
+                    "courseName": "Kỹ năng làm việc nhóm",
+                    "credit": 2,
+                    "practicalCredit": 0,
+                    "theoryCredit": 2,
+                    "midtermScore": 10.0,
+                    "finalScore": 7.5,
+                    "practicalScores": [],
+                    "theoryScores": [
+                        6.5,
+                        5.25,
+                        5.5
+                    ],
+                    "overallScore": 7.9,
+                    "status": "PASSED"
+                },...
+]
+
+*localhost:8060/semester-report/statistics?semester=2&year=2021
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "Thống kê điểm",
+    "data": {
+        "subjects": [
+            "Giáo dục quốc phòng và an ninh 2",
+            "Giáo dục thể chất 2 ",
+            "Kỹ thuật lập trình",
+            "Phương pháp tính",
+            "Hệ Thống Máy tính"
+        ],
+        "averages": [
+            8.158334,
+            8.75,
+            9.508333,
+            9.65,
+            5.166667
+        ],
+        "grades": [
+            7.179167,
+            8.375,
+            8.758333,
+            7.275,
+            7.3208337
+        ]
+    },
+    "status": 200
+}
+
+*localhost:8060/semester-report/estimate/scholarship?semester=2&year=2022&gpa=8.0
+Headers: major_id: 1
+input
+{}
+{
+    "message": "Ước lượng học bổng",
+    "data": 100,
+    "status": 200
+}
+
+*localhost:8060/semester-report/credits
+Headers: id: 21086061, major_id: 1, academic_year: 2021
+input
+{}
+output
+{
+    "message": "Tổng hợp tín chỉ",
+    "data": {
+        "totalEarnedCredits": 149,
+        "totalRequiredCredits": 141
+    },
+    "status": 200
+}
+
+*localhost:8060/grade-report/find?courseId=4203002009
+Headers: id: 21086061
+input
+{}
+output
+{
+    "classId": "420300200921101",
+    "studentId": "21086061",
+    "courseId": "4203002009",
+    "courseName": "Nhập môn Tin học",
+    "credit": 2,
+    "practicalCredit": 0,
+    "theoryCredit": 2,
+    "midtermScore": 9.25,
+    "finalScore": 10.0,
+    "practicalScores": [],
+    "theoryScores": [
+        5.5,
+        5.75,
+        7.5
+    ],
+    "overallScore": 9.025,
+    "status": "PASSED"
+}
+
+*localhost:8060/grade-report/get?course_id=4203002009
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "Success",
+    "data": null,
+    "status": 200
+}
+
+*localhost:8060/course-payments/page?page=1&size=10
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "",
+    "data": {
+        "1-2022": [
+            {
+                "classId": "420300359122101",
+                "courseId": "4203003591",
+                "courseName": "Lập trình hướng đối tượng",
+                "credit": 3,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:27:41.297+00:00",
+                "update_at": "2024-05-25T14:27:41.297+00:00",
+                "semester": 1,
+                "year": 2022,
+                "amount": 430000.0,
+                "deduct": 0.0,
+                "total": 430000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420301525422101",
+                "courseId": "4203015254",
+                "courseName": "Tiếng Anh 2",
+                "credit": 3,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:27:14.661+00:00",
+                "update_at": "2024-05-25T14:27:14.661+00:00",
+                "semester": 1,
+                "year": 2022,
+                "amount": 330000.0,
+                "deduct": 0.0,
+                "total": 330000.0,
+                "status": "UNPAID"
+            }
+        ],
+        "1-2021": [
+            {
+                "classId": "420300384821103",
+                "courseId": "4203003848",
+                "courseName": "Nhập môn Lập trình",
+                "credit": 2,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:14:07.480+00:00",
+                "update_at": "2024-05-25T14:14:07.480+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 400000.0,
+                "deduct": 0.0,
+                "total": 400000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420300330721102",
+                "courseId": "4203003307",
+                "courseName": "Giáo dục thể chất 1 ",
+                "credit": 2,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:14:58.663+00:00",
+                "update_at": "2024-05-25T14:14:58.663+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 400000.0,
+                "deduct": 0.0,
+                "total": 400000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420300319221101",
+                "courseId": "4203003192",
+                "courseName": "Kỹ năng làm việc nhóm",
+                "credit": 2,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T15:15:30.871+00:00",
+                "update_at": "2024-05-25T15:15:30.871+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 200000.0,
+                "deduct": 0.0,
+                "total": 200000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420300200921101",
+                "courseId": "4203002009",
+                "courseName": "Nhập môn Tin học",
+                "credit": 2,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:06:02.507+00:00",
+                "update_at": "2024-05-25T14:06:02.507+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 200000.0,
+                "deduct": 0.0,
+                "total": 200000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420300325921101",
+                "courseId": "4203003259",
+                "courseName": "Toán cao cấp 1",
+                "credit": 2,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:17:35.036+00:00",
+                "update_at": "2024-05-25T14:17:35.036+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 200000.0,
+                "deduct": 0.0,
+                "total": 200000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420301525321101",
+                "courseId": "4203015253",
+                "courseName": "Tiếng Anh 1",
+                "credit": 3,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:06:43.138+00:00",
+                "update_at": "2024-05-25T14:06:43.138+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 300000.0,
+                "deduct": 0.0,
+                "total": 300000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420301416421101",
+                "courseId": "4203014164",
+                "courseName": "Triết học Mác - Lênin",
+                "credit": 3,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:13:12.531+00:00",
+                "update_at": "2024-05-25T14:13:12.531+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 300000.0,
+                "deduct": 0.0,
+                "total": 300000.0,
+                "status": "UNPAID"
+            },
+            {
+                "classId": "420300324221101",
+                "courseId": "4203003242",
+                "courseName": "Giáo dục Quốc phòng và An ninh 1 ",
+                "credit": 4,
+                "studentId": "21086061",
+                "create_at": "2024-05-25T14:21:18.248+00:00",
+                "update_at": "2024-05-25T14:21:18.248+00:00",
+                "semester": 1,
+                "year": 2021,
+                "amount": 400000.0,
+                "deduct": 0.0,
+                "total": 400000.0,
+                "status": "UNPAID"
+            }
+        ]
+    },
+    "status": 200
+}
+
+*localhost:8060/course-payments/by-semester?semester=2&year=2022
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "",
+    "data": [
+        {
+            "classId": "420300105822201",
+            "courseId": "4203001058",
+            "courseName": "Mạng máy tính",
+            "credit": 3,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:29:45.320+00:00",
+            "update_at": "2024-05-25T14:29:45.320+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 330000.0,
+            "deduct": 0.0,
+            "total": 330000.0,
+            "status": "UNPAID"
+        },
+        {
+            "classId": "420300120722202",
+            "courseId": "4203001207",
+            "courseName": "Hệ quản trị cơ sở dữ liệu",
+            "credit": 3,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:29:57.509+00:00",
+            "update_at": "2024-05-25T14:29:57.509+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 430000.0,
+            "deduct": 0.0,
+            "total": 430000.0,
+            "status": "UNPAID"
+        },
+        {
+            "classId": "420300207022201",
+            "courseId": "4203002070",
+            "courseName": "Lập trình hướng sự kiện với công nghệ Java",
+            "credit": 4,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:32:15.351+00:00",
+            "update_at": "2024-05-25T14:32:15.351+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 540000.0,
+            "deduct": 0.0,
+            "total": 540000.0,
+            "status": "UNPAID"
+        },
+        {
+            "classId": "420300214522201",
+            "courseId": "4203002145",
+            "courseName": "Hệ Thống và Công nghệ Web",
+            "credit": 3,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:32:26.713+00:00",
+            "update_at": "2024-05-25T14:32:26.713+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 430000.0,
+            "deduct": 0.0,
+            "total": 430000.0,
+            "status": "UNPAID"
+        },
+        {
+            "classId": "420301416622201",
+            "courseId": "4203014166",
+            "courseName": "Hệ quản trị cơ sở dữ liệu NoSQL MongoDB",
+            "credit": 3,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:32:37.858+00:00",
+            "update_at": "2024-05-25T14:32:37.858+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 430000.0,
+            "deduct": 0.0,
+            "total": 430000.0,
+            "status": "UNPAID"
+        },
+        {
+            "classId": "420300375322201",
+            "courseId": "4203003753",
+            "courseName": "Phân tích thiết kế hệ thống",
+            "credit": 3,
+            "studentId": "21086061",
+            "create_at": "2024-05-25T14:33:13.014+00:00",
+            "update_at": "2024-05-25T14:33:13.014+00:00",
+            "semester": 2,
+            "year": 2022,
+            "amount": 430000.0,
+            "deduct": 0.0,
+            "total": 430000.0,
+            "status": "UNPAID"
+        }
+    ],
+    "status": 200
+}
+
+*localhost:8060/course-payments/by-semester-year?semester=2&year=2022
+Headers: id: 21086061
+input
+{}
+output
+{
+    "420300214522201": {
+        "classId": "420300214522201",
+        "courseId": "4203002145",
+        "courseName": "Hệ Thống và Công nghệ Web",
+        "credit": 3,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:32:26.713+00:00",
+        "update_at": "2024-05-25T14:32:26.713+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 430000.0,
+        "deduct": 0.0,
+        "total": 430000.0,
+        "status": "UNPAID"
+    },
+    "420300105822201": {
+        "classId": "420300105822201",
+        "courseId": "4203001058",
+        "courseName": "Mạng máy tính",
+        "credit": 3,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:29:45.320+00:00",
+        "update_at": "2024-05-25T14:29:45.320+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 330000.0,
+        "deduct": 0.0,
+        "total": 330000.0,
+        "status": "UNPAID"
+    },
+    "420301416622201": {
+        "classId": "420301416622201",
+        "courseId": "4203014166",
+        "courseName": "Hệ quản trị cơ sở dữ liệu NoSQL MongoDB",
+        "credit": 3,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:32:37.858+00:00",
+        "update_at": "2024-05-25T14:32:37.858+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 430000.0,
+        "deduct": 0.0,
+        "total": 430000.0,
+        "status": "UNPAID"
+    },
+    "420300207022201": {
+        "classId": "420300207022201",
+        "courseId": "4203002070",
+        "courseName": "Lập trình hướng sự kiện với công nghệ Java",
+        "credit": 4,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:32:15.351+00:00",
+        "update_at": "2024-05-25T14:32:15.351+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 540000.0,
+        "deduct": 0.0,
+        "total": 540000.0,
+        "status": "UNPAID"
+    },
+    "420300120722202": {
+        "classId": "420300120722202",
+        "courseId": "4203001207",
+        "courseName": "Hệ quản trị cơ sở dữ liệu",
+        "credit": 3,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:29:57.509+00:00",
+        "update_at": "2024-05-25T14:29:57.509+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 430000.0,
+        "deduct": 0.0,
+        "total": 430000.0,
+        "status": "UNPAID"
+    },
+    "420300375322201": {
+        "classId": "420300375322201",
+        "courseId": "4203003753",
+        "courseName": "Phân tích thiết kế hệ thống",
+        "credit": 3,
+        "studentId": "21086061",
+        "create_at": "2024-05-25T14:33:13.014+00:00",
+        "update_at": "2024-05-25T14:33:13.014+00:00",
+        "semester": 2,
+        "year": 2022,
+        "amount": 430000.0,
+        "deduct": 0.0,
+        "total": 430000.0,
+        "status": "UNPAID"
+    }
+}
+
+*localhost:8060/invoices?page=1&size=10
+Headers: id: 21086061
+input
+{}
+output
+{
+    "message": "Danh sách phiếu thu",
+    "data": [],
+    "status": 200
+}
+
+*localhost:8060/classes/registrable?semester=1&year=2021
+Headers: major_id: 1
+input
+{}
+output
+{
+    "message": "Danh sách lớp học",
+    "data": {},
+    "status": 200
+}
+
+*localhost:8060/enrollments/registry?semester=1&year=2022
+Headers: id: 21086061, major_id: 1
+input
+{}
+output
+{
+    "message": "Danh sách học phần đã đăng ký",
+    "data": [],
+    "status": 200
+}
+
+*localhost:8060/wait-list?semester=1&year=2024
+Headers: id: 21086061, major_id: 1
+input
+{}
+output
+{
+    "message": "Danh sách học phần đã đăng ký vào danh sách chờ",
+    "data": [],
+    "status": 200
+}

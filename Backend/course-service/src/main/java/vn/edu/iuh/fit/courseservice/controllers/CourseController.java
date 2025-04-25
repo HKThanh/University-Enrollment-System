@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.courseservice.controllers;
 
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class CourseController {
     private final CourseService courseService;
     private final FacultyClient facultyClient;
 
-    public CourseController(CourseService courseService, FacultyClient facultyClient) {
+    public CourseController(CourseService courseService, FacultyClient facultyClient, MongoTemplate mongoTemplate) {
         this.courseService = courseService;
         this.facultyClient = facultyClient;
     }

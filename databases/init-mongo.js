@@ -77951,7 +77951,7 @@ db.createCollection("gradeReport");
 db.gradeReport.insertMany([
     {
         class_id: "420300090122102",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203000901",
         course_name: "Cấu trúc rời rạc",
         credit: 3,
@@ -77965,7 +77965,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300090823102",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203000908",
         course_name: "Lý thuyết đồ thị",
         credit: 3,
@@ -77979,7 +77979,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300094121201",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203000941",
         course_name: "Kỹ thuật lập trình",
         credit: 3,
@@ -77994,7 +77994,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300094222101",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203000942",
         course_name: "Cấu trúc dữ liệu và giải thuật",
         credit: 4,
@@ -78009,7 +78009,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300100423202",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203001004",
         course_name: "Nhập môn an toàn thông tin",
         credit: 3,
@@ -78023,7 +78023,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300105822201",
-        student_id: "21086061",
+        student_id: "21082081",
         course_id: "4203001058",
         course_name: "Mạng máy tính",
         credit: 3,
