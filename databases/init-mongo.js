@@ -77903,45 +77903,45 @@ db.studentSchedule.insertMany([
     {"studentId":"21086061","classId":"420300362124101","group":3},
     {"studentId":"21086061","classId":"420300359224101","group":2},
     {"studentId":"21086061","classId":"420300242224103","group":0},
-    {"studentId":"21082081","classId":"420300200921101","group":0},
-    {"studentId":"21082081","classId":"420301525321101","group":0},
-    {"studentId":"21082081","classId":"420301416421101","group":0},
-    {"studentId":"21082081","classId":"420300384821103","group":2},
-    {"studentId":"21082081","classId":"420300330721102","group":2},
-    {"studentId":"21082081","classId":"420300325921101","group":0},
-    {"studentId":"21082081","classId":"420300324221101","group":0},
-    {"studentId":"21082081","classId":"420300319221101","group":0},
-    {"studentId":"21082081","classId":"420300094121201","group":2},
-    {"studentId":"21082081","classId":"420300335421201","group":1},
-    {"studentId":"21082081","classId":"420300332021201","group":0},
-    {"studentId":"21082081","classId":"420300330621201","group":2},
-    {"studentId":"21082081","classId":"420300213721203","group":2},
-    {"studentId":"21082081","classId":"420300090122102","group":0},
-    {"studentId":"21082081","classId":"420301525422101","group":0},
-    {"studentId":"21082081","classId":"420300359122101","group":2},
-    {"studentId":"21082081","classId":"420300328822103","group":0},
-    {"studentId":"21082081","classId":"420300114622103","group":2},
-    {"studentId":"21082081","classId":"420300094222101","group":2},
-    {"studentId":"21082081","classId":"420300105822201","group":0},
-    {"studentId":"21082081","classId":"420301416622201","group":1},
-    {"studentId":"21082081","classId":"420300375322201","group":3},
-    {"studentId":"21082081","classId":"420300207022201","group":1},
-    {"studentId":"21082081","classId":"420300214522201","group":2},
-    {"studentId":"21082081","classId":"420300120722202","group":2},
-    {"studentId":"21082081","classId":"420300090823102","group":0},
-    {"studentId":"21082081","classId":"420301416823101","group":0},
-    {"studentId":"21082081","classId":"420300350123102","group":1},
-    {"studentId":"21082081","classId":"420300324523101","group":0},
-    {"studentId":"21082081","classId":"420300319823101","group":0},
-    {"studentId":"21082081","classId":"420300100423202","group":0},
-    {"studentId":"21082081","classId":"420300345123201","group":3},
-    {"studentId":"21082081","classId":"420300334723203","group":0},
-    {"studentId":"21082081","classId":"420300214623201","group":2},
-    {"studentId":"21082081","classId":"420300111123201","group":0},
-    {"studentId":"21082081","classId":"420300143224101","group":2},
-    {"studentId":"21082081","classId":"420300362124101","group":2},
-    {"studentId":"21082081","classId":"420300359224101","group":2},
-    {"studentId":"21082081","classId":"420300242224103","group":0}
+    {"studentId":"21086351","classId":"420300200921101","group":0},
+    {"studentId":"21086351","classId":"420301525321101","group":0},
+    {"studentId":"21086351","classId":"420301416421101","group":0},
+    {"studentId":"21086351","classId":"420300384821103","group":2},
+    {"studentId":"21086351","classId":"420300330721102","group":2},
+    {"studentId":"21086351","classId":"420300325921101","group":0},
+    {"studentId":"21086351","classId":"420300324221101","group":0},
+    {"studentId":"21086351","classId":"420300319221101","group":0},
+    {"studentId":"21086351","classId":"420300094121201","group":2},
+    {"studentId":"21086351","classId":"420300335421201","group":1},
+    {"studentId":"21086351","classId":"420300332021201","group":0},
+    {"studentId":"21086351","classId":"420300330621201","group":2},
+    {"studentId":"21086351","classId":"420300213721203","group":2},
+    {"studentId":"21086351","classId":"420300090122102","group":0},
+    {"studentId":"21086351","classId":"420301525422101","group":0},
+    {"studentId":"21086351","classId":"420300359122101","group":2},
+    {"studentId":"21086351","classId":"420300328822103","group":0},
+    {"studentId":"21086351","classId":"420300114622103","group":2},
+    {"studentId":"21086351","classId":"420300094222101","group":2},
+    {"studentId":"21086351","classId":"420300105822201","group":0},
+    {"studentId":"21086351","classId":"420301416622201","group":1},
+    {"studentId":"21086351","classId":"420300375322201","group":3},
+    {"studentId":"21086351","classId":"420300207022201","group":1},
+    {"studentId":"21086351","classId":"420300214522201","group":2},
+    {"studentId":"21086351","classId":"420300120722202","group":2},
+    {"studentId":"21086351","classId":"420300090823102","group":0},
+    {"studentId":"21086351","classId":"420301416823101","group":0},
+    {"studentId":"21086351","classId":"420300350123102","group":1},
+    {"studentId":"21086351","classId":"420300324523101","group":0},
+    {"studentId":"21086351","classId":"420300319823101","group":0},
+    {"studentId":"21086351","classId":"420300100423202","group":0},
+    {"studentId":"21086351","classId":"420300345123201","group":3},
+    {"studentId":"21086351","classId":"420300334723203","group":0},
+    {"studentId":"21086351","classId":"420300214623201","group":2},
+    {"studentId":"21086351","classId":"420300111123201","group":0},
+    {"studentId":"21086351","classId":"420300143224101","group":2},
+    {"studentId":"21086351","classId":"420300362124101","group":2},
+    {"studentId":"21086351","classId":"420300359224101","group":2},
+    {"studentId":"21086351","classId":"420300242224103","group":0}
 ]);
 
 db = db.getSiblingDB("grade_db");
@@ -77951,7 +77951,7 @@ db.createCollection("gradeReport");
 db.gradeReport.insertMany([
     {
         class_id: "420300090122102",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203000901",
         course_name: "Cấu trúc rời rạc",
         credit: 3,
@@ -77965,7 +77965,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300090823102",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203000908",
         course_name: "Lý thuyết đồ thị",
         credit: 3,
@@ -77979,7 +77979,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300094121201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203000941",
         course_name: "Kỹ thuật lập trình",
         credit: 3,
@@ -77994,7 +77994,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300094222101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203000942",
         course_name: "Cấu trúc dữ liệu và giải thuật",
         credit: 4,
@@ -78009,7 +78009,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300100423202",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001004",
         course_name: "Nhập môn an toàn thông tin",
         credit: 3,
@@ -78023,7 +78023,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300105822201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001058",
         course_name: "Mạng máy tính",
         credit: 3,
@@ -78037,7 +78037,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300111123201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001111",
         course_name: "Công nghệ phần mềm",
         credit: 3,
@@ -78051,7 +78051,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300114622103",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001146",
         course_name: "Hệ cơ sở dữ liệu",
         credit: 4,
@@ -78066,7 +78066,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300120722202",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001207",
         course_name: "Hệ quản trị cơ sở dữ liệu",
         credit: 3,
@@ -78081,7 +78081,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300143224101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203001432",
         course_name: "Lập trình thiết bị di động",
         credit: 4,
@@ -78096,7 +78096,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300200921101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002009",
         course_name: "Nhập môn Tin học",
         credit: 2,
@@ -78110,7 +78110,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300207022201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002070",
         course_name: "Lập trình hướng sự kiện với công nghệ Java",
         credit: 4,
@@ -78125,7 +78125,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300213721203",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002137",
         course_name: "Hệ Thống Máy tính",
         credit: 4,
@@ -78140,7 +78140,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300214522201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002145",
         course_name: "Hệ Thống và Công nghệ Web",
         credit: 3,
@@ -78155,7 +78155,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300214623201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002146",
         course_name: "Lập trình phân tán với công nghệ Java",
         credit: 3,
@@ -78170,7 +78170,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300242224103",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203002422",
         course_name: "Pháp luật đại cương",
         credit: 2,
@@ -78184,7 +78184,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300319221101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003192",
         course_name: "Kỹ năng làm việc nhóm",
         credit: 2,
@@ -78198,7 +78198,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300319823101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003198",
         course_name: "Phương pháp luận nghiên cứu khoa học",
         credit: 2,
@@ -78212,7 +78212,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300324221101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003242",
         course_name: "Giáo dục Quốc phòng và An ninh 1 ",
         credit: 4,
@@ -78226,7 +78226,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300324523101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003245",
         course_name: "Tiếng Việt thực hành",
         credit: 3,
@@ -78240,7 +78240,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300325921101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003259",
         course_name: "Toán cao cấp 1",
         credit: 2,
@@ -78254,7 +78254,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300328822103",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003288",
         course_name: "Toán cao cấp 2",
         credit: 2,
@@ -78268,7 +78268,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300330621201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003306",
         course_name: "Giáo dục thể chất 2 ",
         credit: 2,
@@ -78282,7 +78282,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300330721102",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003307",
         course_name: "Giáo dục thể chất 1 ",
         credit: 2,
@@ -78296,7 +78296,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300332021201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003320",
         course_name: "Phương pháp tính",
         credit: 3,
@@ -78310,7 +78310,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300334723203",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003347",
         course_name: "Những vấn đề xã hội và đạo đức nghề nghiệp",
         credit: 3,
@@ -78324,7 +78324,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300335421201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003354",
         course_name: "Giáo dục quốc phòng và an ninh 2",
         credit: 4,
@@ -78339,7 +78339,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300345123201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003451",
         course_name: "Thống kê máy tính và ứng dụng",
         credit: 3,
@@ -78354,7 +78354,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300350123102",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003501",
         course_name: "Phát triển ứng dụng",
         credit: 3,
@@ -78369,7 +78369,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300359122101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003591",
         course_name: "Lập trình hướng đối tượng",
         credit: 3,
@@ -78384,7 +78384,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300359224101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003592",
         course_name: "Đảm bảo chất lượng và Kiểm thử phần mềm",
         credit: 3,
@@ -78399,7 +78399,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300362124101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003621",
         course_name: "Lập trình WWW (Java)",
         credit: 4,
@@ -78414,7 +78414,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300375322201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003753",
         course_name: "Phân tích thiết kế hệ thống",
         credit: 3,
@@ -78429,7 +78429,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420300384821103",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203003848",
         course_name: "Nhập môn Lập trình",
         credit: 2,
@@ -78443,7 +78443,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420301416421101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203014164",
         course_name: "Triết học Mác - Lênin",
         credit: 3,
@@ -78457,7 +78457,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420301416622201",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203014166",
         course_name: "Hệ quản trị cơ sở dữ liệu NoSQL MongoDB",
         credit: 3,
@@ -78472,7 +78472,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420301416823101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203014168",
         course_name: "Mô hình hóa dữ liệu NoSQL MongoDB",
         credit: 3,
@@ -78486,7 +78486,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420301525321101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203015253",
         course_name: "Tiếng Anh 1",
         credit: 3,
@@ -78500,7 +78500,7 @@ db.gradeReport.insertMany([
     },
     {
         class_id: "420301525422101",
-        student_id: "21082081",
+        student_id: "21086351",
         course_id: "4203015254",
         course_name: "Tiếng Anh 2",
         credit: 3,
@@ -79081,14 +79081,14 @@ db.createCollection("semesterSummary");
 
 db.semesterSummary.insertMany([
   {
-    "student_id": "21086061",
+    "student_id": "21086351",
     "semester": 2,
     "year": 2021,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300094121201",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203000941",
         "course_name": "Kỹ thuật lập trình",
         "credit": 3,
@@ -79111,7 +79111,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300213721203",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203002137",
         "course_name": "Hệ Thống Máy tính",
         "credit": 4,
@@ -79134,7 +79134,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300330621201",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003306",
         "course_name": "Giáo dục thể chất 2 ",
         "credit": 2,
@@ -79153,7 +79153,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300332021201",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003320",
         "course_name": "Phương pháp tính",
         "credit": 3,
@@ -79172,7 +79172,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300335421201",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003354",
         "course_name": "Giáo dục quốc phòng và an ninh 2",
         "credit": 4,
@@ -79199,14 +79199,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 16
   },
   {
-    "student_id": "21086061",
+    "student_id": "21086351",
     "semester": 1,
     "year": 2021,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300200921101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203002009",
         "course_name": "Nhập môn Tin học",
         "credit": 2,
@@ -79225,7 +79225,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300319221101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003192",
         "course_name": "Kỹ năng làm việc nhóm",
         "credit": 2,
@@ -79244,7 +79244,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300324221101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003242",
         "course_name": "Giáo dục Quốc phòng và An ninh 1 ",
         "credit": 4,
@@ -79263,7 +79263,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300325921101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003259",
         "course_name": "Toán cao cấp 1",
         "credit": 2,
@@ -79282,7 +79282,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300330721102",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003307",
         "course_name": "Giáo dục thể chất 1 ",
         "credit": 2,
@@ -79301,7 +79301,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300384821103",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203003848",
         "course_name": "Nhập môn Lập trình",
         "credit": 2,
@@ -79320,7 +79320,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301416421101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203014164",
         "course_name": "Triết học Mác - Lênin",
         "credit": 3,
@@ -79339,7 +79339,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301525321101",
-        "student_id": "21086061",
+        "student_id": "21086351",
         "course_id": "4203015253",
         "course_name": "Tiếng Anh 1",
         "credit": 3,
@@ -79362,14 +79362,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 20
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086351",
     "semester": 2,
     "year": 2022,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300105822201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001058",
         "course_name": "Mạng máy tính",
         "credit": 3,
@@ -79388,7 +79388,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300120722202",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001207",
         "course_name": "Hệ quản trị cơ sở dữ liệu",
         "credit": 3,
@@ -79411,7 +79411,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300207022201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203002070",
         "course_name": "Lập trình hướng sự kiện với công nghệ Java",
         "credit": 4,
@@ -79434,7 +79434,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300214522201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203002145",
         "course_name": "Hệ Thống và Công nghệ Web",
         "credit": 3,
@@ -79457,7 +79457,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300375322201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003753",
         "course_name": "Phân tích thiết kế hệ thống",
         "credit": 3,
@@ -79480,7 +79480,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301416622201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203014166",
         "course_name": "Hệ quản trị cơ sở dữ liệu NoSQL MongoDB",
         "credit": 3,
@@ -79507,14 +79507,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 19
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086351",
     "semester": 2,
     "year": 2023,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300100423202",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001004",
         "course_name": "Nhập môn an toàn thông tin",
         "credit": 3,
@@ -79533,7 +79533,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300111123201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001111",
         "course_name": "Công nghệ phần mềm",
         "credit": 3,
@@ -79552,7 +79552,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300214623201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203002146",
         "course_name": "Lập trình phân tán với công nghệ Java",
         "credit": 3,
@@ -79575,7 +79575,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300334723203",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003347",
         "course_name": "Những vấn đề xã hội và đạo đức nghề nghiệp",
         "credit": 3,
@@ -79594,7 +79594,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300345123201",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003451",
         "course_name": "Thống kê máy tính và ứng dụng",
         "credit": 3,
@@ -79621,14 +79621,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 15
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086351",
     "semester": 1,
     "year": 2022,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300090122102",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203000901",
         "course_name": "Cấu trúc rời rạc",
         "credit": 3,
@@ -79647,7 +79647,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300094222101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203000942",
         "course_name": "Cấu trúc dữ liệu và giải thuật",
         "credit": 4,
@@ -79670,7 +79670,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300114622103",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001146",
         "course_name": "Hệ cơ sở dữ liệu",
         "credit": 4,
@@ -79693,7 +79693,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300328822103",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003288",
         "course_name": "Toán cao cấp 2",
         "credit": 2,
@@ -79712,7 +79712,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300359122101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003591",
         "course_name": "Lập trình hướng đối tượng",
         "credit": 3,
@@ -79735,7 +79735,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301525422101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203015254",
         "course_name": "Tiếng Anh 2",
         "credit": 3,
@@ -79758,14 +79758,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 19
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086351",
     "semester": 1,
     "year": 2023,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300090823102",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203000908",
         "course_name": "Lý thuyết đồ thị",
         "credit": 3,
@@ -79784,7 +79784,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300319823101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003198",
         "course_name": "Phương pháp luận nghiên cứu khoa học",
         "credit": 2,
@@ -79803,7 +79803,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300324523101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003245",
         "course_name": "Tiếng Việt thực hành",
         "credit": 3,
@@ -79822,7 +79822,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300350123102",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003501",
         "course_name": "Phát triển ứng dụng",
         "credit": 3,
@@ -79845,7 +79845,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420301416823101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203014168",
         "course_name": "Mô hình hóa dữ liệu NoSQL MongoDB",
         "credit": 3,
@@ -79868,14 +79868,14 @@ db.semesterSummary.insertMany([
     "total_passed_credits": 14
   },
   {
-    "student_id": "21082081",
+    "student_id": "21086351",
     "semester": 1,
     "year": 2024,
     "major_id": 1,
     "grades": [
       {
         "class_id": "420300143224101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203001432",
         "course_name": "Lập trình thiết bị di động",
         "credit": 4,
@@ -79898,7 +79898,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300242224103",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203002422",
         "course_name": "Pháp luật đại cương",
         "credit": 2,
@@ -79917,7 +79917,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300359224101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003592",
         "course_name": "Đảm bảo chất lượng và Kiểm thử phần mềm",
         "credit": 3,
@@ -79940,7 +79940,7 @@ db.semesterSummary.insertMany([
       },
       {
         "class_id": "420300362124101",
-        "student_id": "21082081",
+        "student_id": "21086351",
         "course_id": "4203003621",
         "course_name": "Lập trình WWW (Java)",
         "credit": 4,
@@ -80896,44 +80896,44 @@ db.coursePayment.insertMany([
     {"class_id":"420300362124101","course_id":"4203003621","course_name":"Lập trình WWW (Java)","credit":4,"student_id":"21086061","create_at": new Date("2024-05-25T14:41:26.921Z"),"update_at": new Date("2024-05-25T14:41:26.921Z"),"semester":1,"year":2024,"amount":620000,"deduct":0,"total":620000,"payment_status":"UNPAID"},
     {"class_id":"420300359224101","course_id":"4203003592","course_name":"Đảm bảo chất lượng và Kiểm thử phần mềm","credit":3,"student_id":"21086061","create_at": new Date("2024-05-25T14:41:49.406Z"),"update_at": new Date("2024-05-25T14:41:49.406Z"),"semester":1,"year":2024,"amount":490000,"deduct":0,"total":490000,"payment_status":"UNPAID"},
     {"class_id":"420300242224103","course_id":"4203002422","course_name":"Pháp luật đại cương","credit":2,"student_id":"21086061","create_at": new Date("2024-05-25T14:42:08.161Z"),"update_at": new Date("2024-05-25T14:42:08.161Z"),"semester":1,"year":2024,"amount":260000,"deduct":0,"total":260000,"payment_status":"UNPAID"},
-    {"class_id":"420300200921101","course_id":"4203002009","course_name":"Nhập môn Tin học","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:45:48.264Z"),"update_at": new Date("2024-05-25T14:45:48.264Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
-    {"class_id":"420301525321101","course_id":"4203015253","course_name":"Tiếng Anh 1","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:45:58.305Z"),"update_at": new Date("2024-05-25T14:45:58.305Z"),"semester":1,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
-    {"class_id":"420301416421101","course_id":"4203014164","course_name":"Triết học Mác - Lênin","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:46:12.922Z"),"update_at": new Date("2024-05-25T14:46:12.922Z"),"semester":1,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
-    {"class_id":"420300384821103","course_id":"4203003848","course_name":"Nhập môn Lập trình","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:46:40.490Z"),"update_at": new Date("2024-05-25T14:46:40.490Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
-    {"class_id":"420300330721102","course_id":"4203003307","course_name":"Giáo dục thể chất 1 ","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:46:51.121Z"),"update_at": new Date("2024-05-25T14:46:51.121Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
-    {"class_id":"420300325921101","course_id":"4203003259","course_name":"Toán cao cấp 1","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:47:03.901Z"),"update_at": new Date("2024-05-25T14:47:03.901Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
-    {"class_id":"420300324221101","course_id":"4203003242","course_name":"Giáo dục Quốc phòng và An ninh 1 ","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T14:47:13.009Z"),"update_at": new Date("2024-05-25T14:47:13.009Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
-    {"class_id":"420300319221101","course_id":"4203003192","course_name":"Kỹ năng làm việc nhóm","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:47:24.740Z"),"update_at": new Date("2024-05-25T14:47:24.740Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
-    {"class_id":"420300094121201","course_id":"4203000941","course_name":"Kỹ thuật lập trình","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:47:42.074Z"),"update_at": new Date("2024-05-25T14:47:42.074Z"),"semester":2,"year":2021,"amount":500000,"deduct":0,"total":500000,"payment_status":"UNPAID"},
-    {"class_id":"420300335421201","course_id":"4203003354","course_name":"Giáo dục quốc phòng và an ninh 2","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T14:48:00.929Z"),"update_at": new Date("2024-05-25T14:48:00.929Z"),"semester":2,"year":2021,"amount":600000,"deduct":0,"total":600000,"payment_status":"UNPAID"},
-    {"class_id":"420300332021201","course_id":"4203003320","course_name":"Phương pháp tính","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:48:10.456Z"),"update_at": new Date("2024-05-25T14:48:10.456Z"),"semester":2,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
-    {"class_id":"420300330621201","course_id":"4203003306","course_name":"Giáo dục thể chất 2 ","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:48:29.524Z"),"update_at": new Date("2024-05-25T14:48:29.524Z"),"semester":2,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
-    {"class_id":"420300213721203","course_id":"4203002137","course_name":"Hệ Thống Máy tính","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T14:48:37.494Z"),"update_at": new Date("2024-05-25T14:48:37.494Z"),"semester":2,"year":2021,"amount":700000,"deduct":0,"total":700000,"payment_status":"UNPAID"},
-    {"class_id":"420300090122102","course_id":"4203000901","course_name":"Cấu trúc rời rạc","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:58:52.941Z"),"update_at": new Date("2024-05-25T14:58:52.941Z"),"semester":1,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
-    {"class_id":"420301525422101","course_id":"4203015254","course_name":"Tiếng Anh 2","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:02.207Z"),"update_at": new Date("2024-05-25T14:59:02.207Z"),"semester":1,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
-    {"class_id":"420300359122101","course_id":"4203003591","course_name":"Lập trình hướng đối tượng","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:11.067Z"),"update_at": new Date("2024-05-25T14:59:11.067Z"),"semester":1,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
-    {"class_id":"420300328822103","course_id":"4203003288","course_name":"Toán cao cấp 2","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:21.990Z"),"update_at": new Date("2024-05-25T14:59:21.990Z"),"semester":1,"year":2022,"amount":220000,"deduct":0,"total":220000,"payment_status":"UNPAID"},
-    {"class_id":"420300114622103","course_id":"4203001146","course_name":"Hệ cơ sở dữ liệu","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:31.440Z"),"update_at": new Date("2024-05-25T14:59:31.440Z"),"semester":1,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
-    {"class_id":"420300094222101","course_id":"4203000942","course_name":"Cấu trúc dữ liệu và giải thuật","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:40.356Z"),"update_at": new Date("2024-05-25T14:59:40.356Z"),"semester":1,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
-    {"class_id":"420300105822201","course_id":"4203001058","course_name":"Mạng máy tính","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T14:59:52.454Z"),"update_at": new Date("2024-05-25T14:59:52.454Z"),"semester":2,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
-    {"class_id":"420301416622201","course_id":"4203014166","course_name":"Hệ quản trị cơ sở dữ liệu NoSQL MongoDB","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:00:06.605Z"),"update_at": new Date("2024-05-25T15:00:06.605Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
-    {"class_id":"420300375322201","course_id":"4203003753","course_name":"Phân tích thiết kế hệ thống","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:00:23.215Z"),"update_at": new Date("2024-05-25T15:00:23.215Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
-    {"class_id":"420300207022201","course_id":"4203002070","course_name":"Lập trình hướng sự kiện với công nghệ Java","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T15:00:53.975Z"),"update_at": new Date("2024-05-25T15:00:53.975Z"),"semester":2,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
-    {"class_id":"420300214522201","course_id":"4203002145","course_name":"Hệ Thống và Công nghệ Web","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:01:00.546Z"),"update_at": new Date("2024-05-25T15:01:00.546Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
-    {"class_id":"420300120722202","course_id":"4203001207","course_name":"Hệ quản trị cơ sở dữ liệu","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:01:13.633Z"),"update_at": new Date("2024-05-25T15:01:13.633Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
-    {"class_id":"420300090823102","course_id":"4203000908","course_name":"Lý thuyết đồ thị","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:01:27.645Z"),"update_at": new Date("2024-05-25T15:01:27.645Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420301416823101","course_id":"4203014168","course_name":"Mô hình hóa dữ liệu NoSQL MongoDB","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:01:40.882Z"),"update_at": new Date("2024-05-25T15:01:40.882Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420300350123102","course_id":"4203003501","course_name":"Phát triển ứng dụng","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:01:50.677Z"),"update_at": new Date("2024-05-25T15:01:50.677Z"),"semester":1,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
-    {"class_id":"420300324523101","course_id":"4203003245","course_name":"Tiếng Việt thực hành","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:00.948Z"),"update_at": new Date("2024-05-25T15:02:00.948Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420300319823101","course_id":"4203003198","course_name":"Phương pháp luận nghiên cứu khoa học","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:07.886Z"),"update_at": new Date("2024-05-25T15:02:07.886Z"),"semester":1,"year":2023,"amount":240000,"deduct":0,"total":240000,"payment_status":"UNPAID"},
-    {"class_id":"420300100423202","course_id":"4203001004","course_name":"Nhập môn an toàn thông tin","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:21.370Z"),"update_at": new Date("2024-05-25T15:02:21.370Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420300345123201","course_id":"4203003451","course_name":"Thống kê máy tính và ứng dụng","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:36.113Z"),"update_at": new Date("2024-05-25T15:02:36.113Z"),"semester":2,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
-    {"class_id":"420300334723203","course_id":"4203003347","course_name":"Những vấn đề xã hội và đạo đức nghề nghiệp","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:46.065Z"),"update_at": new Date("2024-05-25T15:02:46.065Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420300214623201","course_id":"4203002146","course_name":"Lập trình phân tán với công nghệ Java","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:02:58.418Z"),"update_at": new Date("2024-05-25T15:02:58.418Z"),"semester":2,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
-    {"class_id":"420300111123201","course_id":"4203001111","course_name":"Công nghệ phần mềm","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:03:06.765Z"),"update_at": new Date("2024-05-25T15:03:06.765Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
-    {"class_id":"420300143224101","course_id":"4203001432","course_name":"Lập trình thiết bị di động","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T15:04:11.241Z"),"update_at": new Date("2024-05-25T15:04:11.241Z"),"semester":1,"year":2024,"amount":620000,"deduct":0,"total":620000,"payment_status":"UNPAID"},
-    {"class_id":"420300362124101","course_id":"4203003621","course_name":"Lập trình WWW (Java)","credit":4,"student_id":"21082081","create_at": new Date("2024-05-25T15:04:22.254Z"),"update_at": new Date("2024-05-25T15:04:22.254Z"),"semester":1,"year":2024,"amount":620000,"deduct":0,"total":620000,"payment_status":"UNPAID"},
-    {"class_id":"420300359224101","course_id":"4203003592","course_name":"Đảm bảo chất lượng và Kiểm thử phần mềm","credit":3,"student_id":"21082081","create_at": new Date("2024-05-25T15:04:34.744Z"),"update_at": new Date("2024-05-25T15:04:34.744Z"),"semester":1,"year":2024,"amount":490000,"deduct":0,"total":490000,"payment_status":"UNPAID"},
-    {"class_id":"420300242224103","course_id":"4203002422","course_name":"Pháp luật đại cương","credit":2,"student_id":"21082081","create_at": new Date("2024-05-25T15:04:42.936Z"),"update_at": new Date("2024-05-25T15:04:42.936Z"),"semester":1,"year":2024,"amount":260000,"deduct":0,"total":260000,"payment_status":"UNPAID"},
+    {"class_id":"420300200921101","course_id":"4203002009","course_name":"Nhập môn Tin học","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:45:48.264Z"),"update_at": new Date("2024-05-25T14:45:48.264Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
+    {"class_id":"420301525321101","course_id":"4203015253","course_name":"Tiếng Anh 1","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:45:58.305Z"),"update_at": new Date("2024-05-25T14:45:58.305Z"),"semester":1,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
+    {"class_id":"420301416421101","course_id":"4203014164","course_name":"Triết học Mác - Lênin","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:46:12.922Z"),"update_at": new Date("2024-05-25T14:46:12.922Z"),"semester":1,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
+    {"class_id":"420300384821103","course_id":"4203003848","course_name":"Nhập môn Lập trình","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:46:40.490Z"),"update_at": new Date("2024-05-25T14:46:40.490Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
+    {"class_id":"420300330721102","course_id":"4203003307","course_name":"Giáo dục thể chất 1 ","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:46:51.121Z"),"update_at": new Date("2024-05-25T14:46:51.121Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
+    {"class_id":"420300325921101","course_id":"4203003259","course_name":"Toán cao cấp 1","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:47:03.901Z"),"update_at": new Date("2024-05-25T14:47:03.901Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
+    {"class_id":"420300324221101","course_id":"4203003242","course_name":"Giáo dục Quốc phòng và An ninh 1 ","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T14:47:13.009Z"),"update_at": new Date("2024-05-25T14:47:13.009Z"),"semester":1,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
+    {"class_id":"420300319221101","course_id":"4203003192","course_name":"Kỹ năng làm việc nhóm","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:47:24.740Z"),"update_at": new Date("2024-05-25T14:47:24.740Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"},
+    {"class_id":"420300094121201","course_id":"4203000941","course_name":"Kỹ thuật lập trình","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:47:42.074Z"),"update_at": new Date("2024-05-25T14:47:42.074Z"),"semester":2,"year":2021,"amount":500000,"deduct":0,"total":500000,"payment_status":"UNPAID"},
+    {"class_id":"420300335421201","course_id":"4203003354","course_name":"Giáo dục quốc phòng và an ninh 2","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T14:48:00.929Z"),"update_at": new Date("2024-05-25T14:48:00.929Z"),"semester":2,"year":2021,"amount":600000,"deduct":0,"total":600000,"payment_status":"UNPAID"},
+    {"class_id":"420300332021201","course_id":"4203003320","course_name":"Phương pháp tính","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:48:10.456Z"),"update_at": new Date("2024-05-25T14:48:10.456Z"),"semester":2,"year":2021,"amount":300000,"deduct":0,"total":300000,"payment_status":"UNPAID"},
+    {"class_id":"420300330621201","course_id":"4203003306","course_name":"Giáo dục thể chất 2 ","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:48:29.524Z"),"update_at": new Date("2024-05-25T14:48:29.524Z"),"semester":2,"year":2021,"amount":400000,"deduct":0,"total":400000,"payment_status":"UNPAID"},
+    {"class_id":"420300213721203","course_id":"4203002137","course_name":"Hệ Thống Máy tính","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T14:48:37.494Z"),"update_at": new Date("2024-05-25T14:48:37.494Z"),"semester":2,"year":2021,"amount":700000,"deduct":0,"total":700000,"payment_status":"UNPAID"},
+    {"class_id":"420300090122102","course_id":"4203000901","course_name":"Cấu trúc rời rạc","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:58:52.941Z"),"update_at": new Date("2024-05-25T14:58:52.941Z"),"semester":1,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
+    {"class_id":"420301525422101","course_id":"4203015254","course_name":"Tiếng Anh 2","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:02.207Z"),"update_at": new Date("2024-05-25T14:59:02.207Z"),"semester":1,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
+    {"class_id":"420300359122101","course_id":"4203003591","course_name":"Lập trình hướng đối tượng","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:11.067Z"),"update_at": new Date("2024-05-25T14:59:11.067Z"),"semester":1,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
+    {"class_id":"420300328822103","course_id":"4203003288","course_name":"Toán cao cấp 2","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:21.990Z"),"update_at": new Date("2024-05-25T14:59:21.990Z"),"semester":1,"year":2022,"amount":220000,"deduct":0,"total":220000,"payment_status":"UNPAID"},
+    {"class_id":"420300114622103","course_id":"4203001146","course_name":"Hệ cơ sở dữ liệu","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:31.440Z"),"update_at": new Date("2024-05-25T14:59:31.440Z"),"semester":1,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
+    {"class_id":"420300094222101","course_id":"4203000942","course_name":"Cấu trúc dữ liệu và giải thuật","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:40.356Z"),"update_at": new Date("2024-05-25T14:59:40.356Z"),"semester":1,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
+    {"class_id":"420300105822201","course_id":"4203001058","course_name":"Mạng máy tính","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T14:59:52.454Z"),"update_at": new Date("2024-05-25T14:59:52.454Z"),"semester":2,"year":2022,"amount":330000,"deduct":0,"total":330000,"payment_status":"UNPAID"},
+    {"class_id":"420301416622201","course_id":"4203014166","course_name":"Hệ quản trị cơ sở dữ liệu NoSQL MongoDB","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:00:06.605Z"),"update_at": new Date("2024-05-25T15:00:06.605Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
+    {"class_id":"420300375322201","course_id":"4203003753","course_name":"Phân tích thiết kế hệ thống","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:00:23.215Z"),"update_at": new Date("2024-05-25T15:00:23.215Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
+    {"class_id":"420300207022201","course_id":"4203002070","course_name":"Lập trình hướng sự kiện với công nghệ Java","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T15:00:53.975Z"),"update_at": new Date("2024-05-25T15:00:53.975Z"),"semester":2,"year":2022,"amount":540000,"deduct":0,"total":540000,"payment_status":"UNPAID"},
+    {"class_id":"420300214522201","course_id":"4203002145","course_name":"Hệ Thống và Công nghệ Web","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:01:00.546Z"),"update_at": new Date("2024-05-25T15:01:00.546Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
+    {"class_id":"420300120722202","course_id":"4203001207","course_name":"Hệ quản trị cơ sở dữ liệu","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:01:13.633Z"),"update_at": new Date("2024-05-25T15:01:13.633Z"),"semester":2,"year":2022,"amount":430000,"deduct":0,"total":430000,"payment_status":"UNPAID"},
+    {"class_id":"420300090823102","course_id":"4203000908","course_name":"Lý thuyết đồ thị","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:01:27.645Z"),"update_at": new Date("2024-05-25T15:01:27.645Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420301416823101","course_id":"4203014168","course_name":"Mô hình hóa dữ liệu NoSQL MongoDB","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:01:40.882Z"),"update_at": new Date("2024-05-25T15:01:40.882Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420300350123102","course_id":"4203003501","course_name":"Phát triển ứng dụng","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:01:50.677Z"),"update_at": new Date("2024-05-25T15:01:50.677Z"),"semester":1,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
+    {"class_id":"420300324523101","course_id":"4203003245","course_name":"Tiếng Việt thực hành","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:00.948Z"),"update_at": new Date("2024-05-25T15:02:00.948Z"),"semester":1,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420300319823101","course_id":"4203003198","course_name":"Phương pháp luận nghiên cứu khoa học","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:07.886Z"),"update_at": new Date("2024-05-25T15:02:07.886Z"),"semester":1,"year":2023,"amount":240000,"deduct":0,"total":240000,"payment_status":"UNPAID"},
+    {"class_id":"420300100423202","course_id":"4203001004","course_name":"Nhập môn an toàn thông tin","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:21.370Z"),"update_at": new Date("2024-05-25T15:02:21.370Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420300345123201","course_id":"4203003451","course_name":"Thống kê máy tính và ứng dụng","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:36.113Z"),"update_at": new Date("2024-05-25T15:02:36.113Z"),"semester":2,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
+    {"class_id":"420300334723203","course_id":"4203003347","course_name":"Những vấn đề xã hội và đạo đức nghề nghiệp","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:46.065Z"),"update_at": new Date("2024-05-25T15:02:46.065Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420300214623201","course_id":"4203002146","course_name":"Lập trình phân tán với công nghệ Java","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:02:58.418Z"),"update_at": new Date("2024-05-25T15:02:58.418Z"),"semester":2,"year":2023,"amount":460000,"deduct":0,"total":460000,"payment_status":"UNPAID"},
+    {"class_id":"420300111123201","course_id":"4203001111","course_name":"Công nghệ phần mềm","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:03:06.765Z"),"update_at": new Date("2024-05-25T15:03:06.765Z"),"semester":2,"year":2023,"amount":360000,"deduct":0,"total":360000,"payment_status":"UNPAID"},
+    {"class_id":"420300143224101","course_id":"4203001432","course_name":"Lập trình thiết bị di động","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T15:04:11.241Z"),"update_at": new Date("2024-05-25T15:04:11.241Z"),"semester":1,"year":2024,"amount":620000,"deduct":0,"total":620000,"payment_status":"UNPAID"},
+    {"class_id":"420300362124101","course_id":"4203003621","course_name":"Lập trình WWW (Java)","credit":4,"student_id":"21086351","create_at": new Date("2024-05-25T15:04:22.254Z"),"update_at": new Date("2024-05-25T15:04:22.254Z"),"semester":1,"year":2024,"amount":620000,"deduct":0,"total":620000,"payment_status":"UNPAID"},
+    {"class_id":"420300359224101","course_id":"4203003592","course_name":"Đảm bảo chất lượng và Kiểm thử phần mềm","credit":3,"student_id":"21086351","create_at": new Date("2024-05-25T15:04:34.744Z"),"update_at": new Date("2024-05-25T15:04:34.744Z"),"semester":1,"year":2024,"amount":490000,"deduct":0,"total":490000,"payment_status":"UNPAID"},
+    {"class_id":"420300242224103","course_id":"4203002422","course_name":"Pháp luật đại cương","credit":2,"student_id":"21086351","create_at": new Date("2024-05-25T15:04:42.936Z"),"update_at": new Date("2024-05-25T15:04:42.936Z"),"semester":1,"year":2024,"amount":260000,"deduct":0,"total":260000,"payment_status":"UNPAID"},
     {"class_id":"420300319221101","course_id":"4203003192","course_name":"Kỹ năng làm việc nhóm","credit":2,"student_id":"21086061","create_at": new Date("2024-05-25T15:15:30.871Z"),"update_at": new Date("2024-05-25T15:15:30.871Z"),"semester":1,"year":2021,"amount":200000,"deduct":0,"total":200000,"payment_status":"UNPAID"}
 ])
