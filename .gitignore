@@ -1,6 +1,9 @@
 databases/mongodb
 databases/postgres/data
 
-Backend/.gradle
-
 .env
+
+.idea
+.vscode
+
+Backend/.gradle
