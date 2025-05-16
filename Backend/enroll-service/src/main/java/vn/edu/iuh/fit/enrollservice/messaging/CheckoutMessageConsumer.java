@@ -16,11 +16,9 @@ public class CheckoutMessageConsumer {
         this.enrollmentService = enrollmentService;
     }
 
-    @KafkaListener(topics = RegisterMessageProducer.CHECKOUT_EVENTS_TOPIC, groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "checkout-topic", groupId = "enroll-service-group")
     public void receiveCheckout(CheckoutMessage message) {
-        List<String> classIds = message.checkoutClassRequests().stream()
-            .map(CheckoutClassRequest::classId)
-            .toList();
+        List<String> classIds = message.checkoutClassRequests().stream().map(CheckoutClassRequest::classId).toList();
         enrollmentService.updateEnrollmentStatus(message.studentId(), classIds, message.status());
     }
 }

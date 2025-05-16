@@ -1075,39 +1075,38 @@ CREATE OR REPLACE FUNCTION register_class(
     p_group_id integer
 ) RETURNS integer AS $$
 DECLARE
-    v_max_capacity INTEGER;
+v_max_capacity INTEGER;
     v_semester INTEGER;
     v_year INTEGER;
     v_course_id VARCHAR(255);
     p_status_code INTEGER;
 BEGIN
     -- Get the maximum capacity and status of the class
-    SELECT max_capacity, semester, year, course_id INTO v_max_capacity, v_semester, v_year, v_course_id 
-    FROM classes 
-    WHERE id = p_class_id 
+SELECT max_capacity, semester, year, course_id INTO v_max_capacity, v_semester, v_year, v_course_id
+FROM classes
+WHERE id = p_class_id
     FOR UPDATE;
 
-    -- Check if the class is full
-    IF EXISTS (
-        SELECT 1 
-        FROM enrollments 
-        WHERE registry_class = p_class_id 
-        GROUP BY registry_class 
+-- Check if the class is full
+IF EXISTS (
+        SELECT 1
+        FROM enrollments
+        WHERE registry_class = p_class_id
+        GROUP BY registry_class
         HAVING COUNT(*) >= v_max_capacity
     ) THEN
         p_status_code := 409; -- HTTP status code for class is full
-    ELSE
+ELSE
         -- Insert enrollment record
-        INSERT INTO enrollments (registry_class, student_id, created_at, updated_at, semester, year, course_id, group_id, status) 
+        INSERT INTO enrollments (registry_class, student_id, created_at, updated_at, semester, year, course_id, group_id, status)
         VALUES (p_class_id, p_student_id, NOW(), NOW(), v_semester, v_year, v_course_id, p_group_id, 'UNPAID');
         p_status_code := 201; -- HTTP status code for created
-    END IF;
+END IF;
 
-    RETURN p_status_code;
+RETURN p_status_code;
 END;
 $$ LANGUAGE plpgsql;
 
--- PostgreSQL version of the change_class procedure
 CREATE OR REPLACE FUNCTION change_class(
     p_student_id VARCHAR(255),
     p_old_class_id VARCHAR(255),
@@ -1115,36 +1114,36 @@ CREATE OR REPLACE FUNCTION change_class(
     p_group_id integer
 ) RETURNS integer AS $$
 DECLARE
-    v_max_capacity INTEGER;
+v_max_capacity INTEGER;
     p_status_code INTEGER;
 BEGIN
     -- Get the maximum capacity and status of the new class
-    SELECT max_capacity INTO v_max_capacity 
-    FROM classes 
-    WHERE id = p_new_class_id 
+SELECT max_capacity INTO v_max_capacity
+FROM classes
+WHERE id = p_new_class_id
     FOR UPDATE;
 
-    -- Check if the class is full
-    IF EXISTS (
-        SELECT 1 
-        FROM enrollments 
-        WHERE registry_class = p_new_class_id 
-        GROUP BY registry_class 
+-- Check if the class is full
+IF EXISTS (
+        SELECT 1
+        FROM enrollments
+        WHERE registry_class = p_new_class_id
+        GROUP BY registry_class
         HAVING COUNT(*) >= v_max_capacity
     ) THEN
         p_status_code := 409; -- HTTP status code for class is full
-    ELSE
+ELSE
         -- Update enrollment record
-        UPDATE enrollments 
-        SET registry_class = p_new_class_id, 
-            group_id = p_group_id, 
-            updated_at = NOW() 
-        WHERE student_id = p_student_id 
-        AND registry_class = p_old_class_id;
-        
-        p_status_code := 200; -- HTTP status code for successful update
-    END IF;
+UPDATE enrollments
+SET registry_class = p_new_class_id,
+    group_id = p_group_id,
+    updated_at = NOW()
+WHERE student_id = p_student_id
+  AND registry_class = p_old_class_id;
 
-    RETURN p_status_code;
+p_status_code := 200; -- HTTP status code for successful update
+END IF;
+
+RETURN p_status_code;
 END;
 $$ LANGUAGE plpgsql;
